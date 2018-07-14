@@ -3,10 +3,17 @@
     "eslint:recommended",
     "plugin:react/recommended"
   ],
-  "parser": "babel-eslint",
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true,
+      "modules": true
+    }
+  },
   "rules": {
-    "space-before-function-paren": 0,
-    "space-in-parens": 0,
+    "space-before-function-paren": [ "error", "never" ],
+    "space-in-parens": [ "error", "always" ],
     "react/prop-types": 0
   }
 }
