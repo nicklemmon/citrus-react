@@ -3,8 +3,9 @@ import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { linkTo } from '@storybook/addon-links';
 import { Welcome } from '@storybook/react/demo';
-import '../index.css';
+import { Router } from 'react-router';
 
+import '../index.css';
 import Button from '../components/Button/Button';
 import Heading from '../components/Heading/Heading';
 
@@ -15,7 +16,13 @@ storiesOf( 'Button', module )
   .add( 'with primary type', () => <Button type='primary' content='Primary!' /> )
   .add( 'with secondary type', () => <Button type='secondary' content='Secondary!' /> )
   .add( 'with full width style', () => <Button fullWidth={ true } content='Full width!' /> )
-  .add( 'with link', () => <Button linkTo='/' content='With Link' /> )
+  .add( 'with link', () => {
+    return (
+      <Router>
+        <Button linkTo={ undefined } content='With Link' />
+      </Router>
+    )
+  })
 
 storiesOf( 'Heading', module )
   .add( 'with level 1', () => <Heading level='1' content='Heading level 1' /> )
