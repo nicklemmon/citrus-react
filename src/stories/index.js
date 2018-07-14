@@ -11,7 +11,8 @@ import ButtonWrapper from '../components/ButtonWrapper/ButtonWrapper.jsx';
 import Heading from '../components/Heading/Heading.jsx';
 import Alert from '../components/Alert/Alert.jsx';
 import Card from '../components/Card/Card.jsx';
-import FormGroup from '../components/FormGroup/FormGroup';
+import FormGroup from '../components/FormGroup/FormGroup.jsx';
+import Modal from '../components/Modal/Modal.jsx';
 
 storiesOf( 'Welcome', module ).add( 'to Storybook', () => <Welcome showApp={ linkTo( 'Button' ) } /> );
 
@@ -74,17 +75,40 @@ storiesOf( 'Card', module )
     )
   })
 
-  storiesOf( 'FormGroup', module )
-    .add( 'with all the things', () => {
-      return (
-        <FormGroup
-          type='text'
-          label='First Name'
-          id='first-name'
-          placeholder='i.e., Jim'
-          classes='example-class'
-        />
-      )
-    })
+storiesOf( 'FormGroup', module )
+  .add( 'with all the things', () => {
+    return (
+      <FormGroup
+        type='text'
+        label='First Name'
+        id='first-name'
+        placeholder='i.e., Jim'
+        classes='example-class'
+      />
+    )
+  })
 
+storiesOf( 'Modal', module )
+  .add( 'with no child elements', () => <Modal id='example-modal' heading='Example Modal' /> )
+  .add( 'with child elements', () => {
+    return (
+      <Modal
+        id='example-modal-2'
+        heading='Example Modal with Child Elements'
+      >
+        <p>Some modal content!</p>
 
+        <ButtonWrapper>
+          <Button
+            type='primary'
+            content='OK'
+          />
+
+          <Button
+            type='secondary'
+            content='Cancel'
+          />
+        </ButtonWrapper>
+      </Modal>
+    )
+  } )
