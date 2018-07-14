@@ -11,6 +11,7 @@ import ButtonWrapper from '../components/ButtonWrapper/ButtonWrapper.jsx';
 import Heading from '../components/Heading/Heading.jsx';
 import Alert from '../components/Alert/Alert.jsx';
 import Card from '../components/Card/Card.jsx';
+import FormGroup from '../components/FormGroup/FormGroup';
 
 storiesOf( 'Welcome', module ).add( 'to Storybook', () => <Welcome showApp={ linkTo( 'Button' ) } /> );
 
@@ -73,5 +74,17 @@ storiesOf( 'Card', module )
     )
   })
 
+  storiesOf( 'FormGroup', module )
+    .add( 'with all the things', () => {
+      return (
+        <FormGroup
+          type='text'
+          label='First Name'
+          id='first-name'
+          placeholder='i.e., Jim'
+          classes='example-class'
+        />
+      )
+    })
 
 
