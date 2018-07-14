@@ -62,3 +62,12 @@
 .Button--secondary:hover {
   background-color: var(--dark-white);
 }
+
+.Button--tertiary {
+  border-color: var(--light-gray);
+  color: var(--dark-blue);
+}
+
+.Button--tertiary:hover {
+  background-color: var(--dark-white);
+}

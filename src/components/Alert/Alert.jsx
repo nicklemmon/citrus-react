@@ -9,16 +9,16 @@ import './Alert.css'
 
 export default class Alert extends React.Component {
   constructor( props ) {
-    super( props )
+    super( props );
 
-    this.alertContent = React.createRef()
+    this.alertContent = React.createRef();
 
     this.state = {
       isHidden: false
     }
 
-    this.show = this.show.bind( this )
-    this.hide = this.hide.bind( this )
+    this.show = this.show.bind( this );
+    this.hide = this.hide.bind( this );
   }
 
   componentDidMount() {

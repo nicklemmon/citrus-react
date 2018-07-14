@@ -1,9 +1,10 @@
-import React from 'react'
+import React from 'react';
 import classnames from 'classnames';
-import Heading from './Heading.jsx'
-import Alert from './Alert.jsx'
 
-import './Card.css'
+import Heading from '../Heading/Heading.jsx';
+import Alert from '../Alert/Alert.jsx';
+
+import './Card.css';
 
 class Card extends React.Component {
   constructor( props ) {
@@ -18,19 +19,20 @@ class Card extends React.Component {
   
   render() {
     const {
+      classes,
       headingLevel,
       headingContent,
       metaContent,
-      footerContent,
-      classes,
+      footerContent
     } = this.props;
-    const classNames = `Card ${ classnames( { classes } ) }`;
+
+    const calculatedClassNames = `Card ${ classnames( { classes } ) }`;
     const hasAlert = this.props.hasAlert || this.state.hasAlert;
     const alertType = this.props.alertType || this.state.alertType;
     const alertContent = this.props.alertContent || this.state.alertContent;
 
     return (
-      <div className={ classNames } role='region'>
+      <div className={ calculatedClassNames } role='region'>
         { headingContent &&
           <div className='Card-header'>
             <Heading

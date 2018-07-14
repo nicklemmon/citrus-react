@@ -6,9 +6,11 @@ import { Welcome } from '@storybook/react/demo';
 import { Router } from 'react-router';
 
 import '../index.css';
-import Button from '../components/Button/Button';
-import Heading from '../components/Heading/Heading';
-import Alert from '../components/Alert/Alert';
+import Button from '../components/Button/Button.jsx';
+import ButtonWrapper from '../components/ButtonWrapper/ButtonWrapper.jsx';
+import Heading from '../components/Heading/Heading.jsx';
+import Alert from '../components/Alert/Alert.jsx';
+import Card from '../components/Card/Card.jsx';
 
 storiesOf( 'Welcome', module ).add( 'to Storybook', () => <Welcome showApp={ linkTo( 'Button' ) } /> );
 
@@ -38,5 +40,38 @@ storiesOf( 'Alert', module )
   .add( 'with type success', () => <Alert type='success' content='This is an success alert.' /> )
   .add( 'with type attention', () => <Alert type='attention' content='This is an attention alert.' /> )
   .add( 'with type info', () => <Alert type='info' content='This is an info alert.' /> )
+
+storiesOf( 'Card', module )
+  .add( 'with headingLevel and headingContent', () => <Card headingLevel='5' headingContent='Example Heading Content' /> )
+  .add( 'with metaContent', () => <Card headingLevel='5' headingContent='Example Heading Content' metaContent='07/04/1776' /> )
+  .add( 'with footerContent', () => <Card footerContent='Example footer content' /> )
+  .add( 'with child elements', () => {
+    return (
+      <Card
+        headingContent='Example Heading Content'
+        headingLevel='5'
+      >
+        <p>I am a child element!</p>
+
+        <ButtonWrapper>
+          <Button
+            type='primary'
+            content='Continue'
+          />
+
+          <Button
+            type='secondary'
+            content='Cancel'
+          />
+
+          <Button
+            type='tertiary'
+            content='Back'
+          />
+        </ButtonWrapper>
+      </Card>
+    )
+  })
+
 
 
