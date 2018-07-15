@@ -6,6 +6,11 @@
   box-shadow: var(--box-shadow-sm);
 }
 
+.Accordion--minimal {
+  border: 0;
+  box-shadow: none;
+}
+
 .Accordion-trigger {
   display: flex;
   align-items: center;
@@ -25,6 +30,11 @@
 .Accordion-trigger:hover,
 .Accordion-trigger:focus {
   background-color: var(--dark-white);
+}
+
+.Accordion-trigger--minimal {
+  border-bottom: 0;
+  color: var(--blue);
 }
 
 .Accordion-icon {

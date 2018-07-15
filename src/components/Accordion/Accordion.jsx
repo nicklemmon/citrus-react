@@ -42,23 +42,29 @@ export default class Accordion extends React.Component {
       children,
       type
     } = this.props;
-
     const isOpen = this.props.isOpen || this.state.isOpen;
     const classes = classNames( 'Accordion', className, {
       'is-open': isOpen,
       'Accordion--minimal': type === 'minimal'
-    } );
+    });
+    const triggerClasses = classNames( 'Accordion-trigger', {
+      'Accordion-trigger--minimal': type === 'minimal'
+    });
     const iconClasses = classNames( 'Accordion-icon', {
       'is-open': isOpen
-    } );
+    });
     const contentClasses = classNames( 'Accordion-content', {
       'is-open': isOpen
-    } );
+    });
 
 
     return (
       <div className={ classes }>
-        <button className='Accordion-trigger' onClick={ this.toggle } aria-expanded={ isOpen }>
+        <button
+          className={ triggerClasses }
+          onClick={ this.toggle }
+          aria-expanded={ isOpen }
+        >
           <FaAngleRight className={ iconClasses }/>
 
           { triggerContent }
