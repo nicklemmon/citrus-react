@@ -13,7 +13,8 @@ import Alert from '../components/Alert/Alert';
 import Card from '../components/Card/Card';
 import FormGroup from '../components/FormGroup/FormGroup';
 import Modal from '../components/Modal/Modal.jsx';
-import ModalLauncher from '../components/Modal/ModalLauncher';
+import ModalLauncher from '../components/Modal/ModalLauncher.jsx';
+import Accordion from '../components/Accordion/Accordion.jsx';
 
 storiesOf( 'Welcome', module ).add( 'to Storybook', () => <Welcome showApp={ linkTo( 'Button' ) } /> );
 
@@ -140,3 +141,6 @@ storiesOf( 'ModalLauncher', module )
       </ModalLauncher>
     )
   } )
+
+storiesOf( 'Accordion', module )
+  .add( 'with some...stuff?', () => <Accordion triggerContent='Accordion, yo'><p>Herro.</p></Accordion> )
