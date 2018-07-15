@@ -89,6 +89,17 @@ storiesOf( 'FormGroup', module )
       />
     )
   })
+  .add( 'with an error message', () => {
+    return (
+      <FormGroup
+        type='text'
+        label='First Name'
+        id='first-name'
+        classes='example-class'
+        errorMsg='You made a mistake!'
+      />
+    )
+  })
 
 storiesOf( 'Modal', module )
   .add( 'with no child elements', () => <Modal id='example-modal' heading='Example Modal' /> )

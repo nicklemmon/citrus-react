@@ -29,3 +29,14 @@
   border-color: var(--blue);
   outline: none;
 }
+
+.FormGroup-errorMsg {
+  display: flex;
+  align-items: center;
+  color: var(--error);
+  margin-top: var(--spacing-sm);
+}
+
+.FormGroup-errorMsgIcon {
+  margin-right: var(--spacing-sm);
+}
