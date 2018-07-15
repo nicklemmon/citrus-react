@@ -16,12 +16,12 @@
 
 .FormGroup-input {
   width: 100%;
-  padding: var(--spacing-sm);
+  padding: var(--spacing-md) var(--spacing-sm);
   font-size: var(--font-size-md);
   background-color: var(--white);
   border: 0;
-  border-bottom: 2px solid var(--gray);
-  box-shadow: 0 10px 20px -10px rgba(0, 0, 0, 0.125);
+  border-bottom: 1px solid var(--dark-gray);
+  box-shadow: var(--box-shadow-md);
   transition: border-color var(--anim-speed) var(--anim-easing);
 }
 
