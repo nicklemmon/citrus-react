@@ -33,7 +33,7 @@
   transition: transform var(--anim-speed) var(--anim-easing);
 }
 
-.Accordion-icon.isOpen {
+.Accordion-icon.is-open {
   transform: rotate(90deg);
 }
 
@@ -44,6 +44,6 @@
   display: none;
 }
 
-.Accordion-content.isOpen {
+.Accordion-content.is-open {
   display: block;
 }

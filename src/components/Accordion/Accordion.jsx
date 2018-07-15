@@ -1,5 +1,5 @@
 import React from 'react';
-import classnames from 'classnames'
+import classNames from 'classnames'
 import FaAngleRight from 'react-icons/lib/fa/angle-right';
 
 import './Accordion.css';
@@ -37,21 +37,34 @@ export default class Accordion extends React.Component {
 
   render() {
     const {
+      className,
       triggerContent,
-      children
+      children,
+      type
     } = this.props;
 
     const isOpen = this.props.isOpen || this.state.isOpen;
+    const classes = classNames( 'Accordion', className, {
+      'is-open': isOpen,
+      'Accordion--minimal': type === 'minimal'
+    } );
+    const iconClasses = classNames( 'Accordion-icon', {
+      'is-open': isOpen
+    } );
+    const contentClasses = classNames( 'Accordion-content', {
+      'is-open': isOpen
+    } );
+
 
     return (
-      <div className={ `Accordion ${ classnames( { isOpen } ) }` }>
+      <div className={ classes }>
         <button className='Accordion-trigger' onClick={ this.toggle } aria-expanded={ isOpen }>
-          <FaAngleRight className={ `Accordion-icon ${ classnames( { isOpen } ) }` }/>
+          <FaAngleRight className={ iconClasses }/>
 
           { triggerContent }
         </button>
 
-        <div className={ `Accordion-content ${ classnames( { isOpen } ) }` }>
+        <div className={ contentClasses }>
           { children }
         </div>
       </div>

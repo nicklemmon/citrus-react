@@ -143,4 +143,6 @@ storiesOf( 'ModalLauncher', module )
   } )
 
 storiesOf( 'Accordion', module )
-  .add( 'with some...stuff?', () => <Accordion triggerContent='Accordion, yo'><p>Herro.</p></Accordion> )
+  .add( 'with some text content', () => <Accordion triggerContent='Accordion, yo'><p>Herro.</p></Accordion> )
+  .add( 'open on mount', () => <Accordion triggerContent='Accordion open on mount' isOpen={ true }><p>Herro.</p></Accordion> )
+  .add( 'with a minimal design', () => <Accordion type='minimal' triggerContent='Accordion with minimal design'></Accordion> )
