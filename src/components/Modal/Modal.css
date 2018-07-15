@@ -45,6 +45,12 @@
   outline: none;
   color: var(--blue);
   cursor: pointer;
+  transition: transform var(--anim-speed) var(--anim-easing);
+}
+
+.Modal-close:hover,
+.Moda-close:focus {
+  transform: scale(1.25);
 }
 
 .Modal-overlay {
