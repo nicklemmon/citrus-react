@@ -6,13 +6,14 @@ import { Welcome } from '@storybook/react/demo';
 import { Router } from 'react-router';
 
 import '../index.css';
-import Button from '../components/Button/Button.jsx';
-import ButtonWrapper from '../components/ButtonWrapper/ButtonWrapper.jsx';
-import Heading from '../components/Heading/Heading.jsx';
-import Alert from '../components/Alert/Alert.jsx';
-import Card from '../components/Card/Card.jsx';
-import FormGroup from '../components/FormGroup/FormGroup.jsx';
+import Button from '../components/Button/Button';
+import ButtonWrapper from '../components/ButtonWrapper/ButtonWrapper';
+import Heading from '../components/Heading/Heading';
+import Alert from '../components/Alert/Alert';
+import Card from '../components/Card/Card';
+import FormGroup from '../components/FormGroup/FormGroup';
 import Modal from '../components/Modal/Modal.jsx';
+import ModalLauncher from '../components/Modal/ModalLauncher';
 
 storiesOf( 'Welcome', module ).add( 'to Storybook', () => <Welcome showApp={ linkTo( 'Button' ) } /> );
 
@@ -110,5 +111,32 @@ storiesOf( 'Modal', module )
           />
         </ButtonWrapper>
       </Modal>
+    )
+  } )
+
+storiesOf( 'ModalLauncher', module )
+  .add( 'with text content', () => {
+    return (
+      <ModalLauncher
+        heading='Example Modal with Text Content'
+        content='Click to open modal'
+        id='example-modal-with-text-content'
+      >
+        <p>Here is some text content.</p>
+      </ModalLauncher>
+    )
+  } )
+  .add( 'with buttons', () => {
+    return (
+      <ModalLauncher
+        heading='Example Modal with Buttons'
+        content='Click to open modal'
+        id='example-modal-with-buttons'
+        hasCTAs={ true }
+        primaryButtonContent='OK'
+        secondaryButtonContent='Cancel'
+      >
+        <p>Be careful what you decide.</p>
+      </ModalLauncher>
     )
   } )
