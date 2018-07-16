@@ -107,6 +107,11 @@ button:focus,
   transition: outline var(--anim-speed) var(--anim-easing);
 }
 
+/* Typography */
+p {
+  margin-top: 0;
+}
+
 /* Utility classes */
 .u-maxWidth-sm {
   max-width: var(--breakpoint-sm);
