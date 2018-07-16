@@ -1,5 +1,5 @@
 import React from 'react';
-import classnames from 'classnames';
+import classNames from 'classnames';
 import FaExclamationCircle from 'react-icons/lib/fa/exclamation-circle';
 
 import './FormGroup.css';
@@ -31,12 +31,18 @@ export default class FormGroup extends React.Component {
       errorMsg
     } = this.props;
 
-    const calculatedClassNames = `FormGroup-input FormGroup-input--${ type } ${ classnames( { classes } ) }`;
+    const labelClassNames = classNames( 'FormGroup-label', {
+      'FormGroup-label--error': errorMsg
+    });
+
+    const inputClassNames = classNames( 'FormGroup-input', classes, {
+      'FormGroup-input--error': errorMsg
+    });
   
     return (
       <div className='FormGroup'>
         <label 
-          className='FormGroup-label' 
+          className={ labelClassNames }
           htmlFor={ id }
         >
           { label }
@@ -44,7 +50,7 @@ export default class FormGroup extends React.Component {
 
         { type === 'textarea' ? (
           <textarea
-            className={ calculatedClassNames }
+            className={ inputClassNames }
             id={ id }
             name={ id }
             type={ type }
@@ -54,7 +60,7 @@ export default class FormGroup extends React.Component {
           ></textarea>
         ) : (
           <input
-            className={ calculatedClassNames }
+            className={ inputClassNames }
             id={ id }
             name={ id }
             type={ type }

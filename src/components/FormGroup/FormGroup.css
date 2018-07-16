@@ -14,6 +14,10 @@
   letter-spacing: 0.05rem;
 }
 
+.FormGroup-label--error {
+  color: var(--error);
+}
+
 .FormGroup-input {
   width: 100%;
   padding: var(--spacing-md) var(--spacing-sm);
@@ -28,6 +32,11 @@
 .FormGroup-input:focus {
   border-color: var(--blue);
   outline: none;
+}
+
+.FormGroup-input--error {
+  border-bottom: 1px solid var(--error);
+  background-color: #ffffed;
 }
 
 .FormGroup-errorMsg {

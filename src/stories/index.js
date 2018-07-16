@@ -78,7 +78,7 @@ storiesOf( 'Card', module )
   })
 
 storiesOf( 'FormGroup', module )
-  .add( 'with all the things', () => {
+  .add( 'with a placeholder', () => {
     return (
       <FormGroup
         type='text'
