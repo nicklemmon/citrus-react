@@ -27,7 +27,7 @@
   
   /* Animation */
   --anim-speed: 0.33s;
-  --anim-easing: ease-out;
+  --anim-easing: ease-in-out;
   
   /* Font families */
   --font-family-primary: sans-serif;

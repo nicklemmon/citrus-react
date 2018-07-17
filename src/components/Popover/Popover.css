@@ -1,0 +1,44 @@
+.Popover {
+  position: relative; /* allows absolute positioning within */
+}
+
+.Popover-launcher {
+  display: flex;
+  align-items: center;
+  font-size: var(--font-size-md);
+  padding: var(--spacing-sm);
+  cursor: pointer;
+  color: currentColor;
+  background: transparent;
+  border: 0;
+  outline: none;
+}
+
+.Popover-content {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  border: 1px solid var(--light-gray);
+  width: 100%;
+  max-width: 200px;
+  box-shadow: var(--box-shadow-xl);
+  transform-origin: top left;
+  transform: scaleY(0);
+  opacity: 0;
+  transition: transform calc(var(--anim-speed) / 2) var(--anim-easing),
+              opacity calc(var(--anim-speed) / 2) var(--anim-easing);
+}
+
+.Popover-content.is-open {
+  transform: scaleY(1);
+  opacity: 1;
+}
+
+.Popover-icon {
+  margin-left: var(--spacing-xs);
+  transition: transform var(--anim-speed) var(--anim-easing);
+}
+
+.Popover-icon.is-rotated {
+  transform: rotate(90deg);
+}

@@ -15,6 +15,8 @@ import FormGroup from '../components/FormGroup/FormGroup';
 import Modal from '../components/Modal/Modal.jsx';
 import ModalLauncher from '../components/Modal/ModalLauncher.jsx';
 import Accordion from '../components/Accordion/Accordion.jsx';
+import Popover from '../components/Popover/Popover.jsx';
+import PopoverItem from '../components/Popover/PopoverItem.jsx';
 
 storiesOf( 'Welcome', module ).add( 'to Storybook', () => <Welcome showApp={ linkTo( 'Button' ) } /> );
 
@@ -157,3 +159,23 @@ storiesOf( 'Accordion', module )
   .add( 'with some text content', () => <Accordion triggerContent='Accordion, yo'><p>Herro.</p></Accordion> )
   .add( 'open on mount', () => <Accordion triggerContent='Accordion open on mount' isOpen={ true }><p>Herro.</p></Accordion> )
   .add( 'with a minimal design', () => <Accordion type='minimal' triggerContent='Accordion with minimal design'><p>Herro.</p></Accordion> )
+
+storiesOf( 'Popover', module )
+  .add( 'with some generic children', () => {
+    return (
+      <Popover buttonContent='Open Popover'>
+        <p>Boo!</p>
+      </Popover>
+    )
+  })
+  .add( 'with PopoverItem children', () => {
+    return (
+      <Popover buttonContent='Open Popover'>
+        <PopoverItem content='Item 1'/>
+
+        <PopoverItem content='Item 2'/>
+
+        <PopoverItem content='Item 3'/>
+      </Popover>
+    )
+  })
