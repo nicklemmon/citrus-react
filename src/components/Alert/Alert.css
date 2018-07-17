@@ -1,4 +1,5 @@
 .Alert {
+  position: relative; /* allows absolute positioning within */
   border: 2px solid var(--light-gray);
   border-bottom: 2px solid var(--light-gray);
   box-shadow: var(--box-shadow-sm);
@@ -74,4 +75,23 @@
 
 .Alert-content:focus {
   outline: 0; /* disable default focus styles as focusing is purely for sceen readers */
+}
+
+.Alert-close {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: var(--spacing-xs);
+  right: var(--spacing-xs);
+  border: 0;
+  background: transparent;
+  color: var(--blue);
+  font-size: var(--font-size-lg);
+  cursor: pointer;
+  transition: transform var(--anim-speed) var(--anim-easing);
+}
+
+.Alert-close:focus,
+.Alert-close:hover {
+  transform: scale(1.25);
 }

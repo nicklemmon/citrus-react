@@ -10,6 +10,7 @@ import Button from '../components/Button/Button';
 import ButtonWrapper from '../components/ButtonWrapper/ButtonWrapper';
 import Heading from '../components/Heading/Heading';
 import Alert from '../components/Alert/Alert';
+import AlertDismissable from '../components/Alert/AlertDismissable.jsx';
 import Card from '../components/Card/Card';
 import FormGroup from '../components/FormGroup/FormGroup';
 import Modal from '../components/Modal/Modal.jsx';
@@ -46,6 +47,7 @@ storiesOf( 'Alert', module )
   .add( 'with type success', () => <Alert type='success' content='This is an success alert.' /> )
   .add( 'with type attention', () => <Alert type='attention' content='This is an attention alert.' /> )
   .add( 'with type info', () => <Alert type='info' content='This is an info alert.' /> )
+  .add( 'is dismissable', () => <AlertDismissable type='error' content='This is a dismissable alert'/> )
 
 storiesOf( 'Card', module )
   .add( 'with headingLevel and headingContent', () => <Card headingLevel='5' headingContent='Example Heading Content' /> )

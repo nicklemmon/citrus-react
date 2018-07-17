@@ -4,6 +4,7 @@ import FaCheckCircle from 'react-icons/lib/fa/check-circle';
 import FaExclamationCircle from 'react-icons/lib/fa/exclamation-circle';
 import FaExclamationTriangle from 'react-icons/lib/fa/exclamation-triangle';
 import FaInfoCircle from 'react-icons/lib/fa/info-circle';
+import FaClose from 'react-icons/lib/fa/close';
 
 import './Alert.css'
 
@@ -41,7 +42,9 @@ export default class Alert extends React.Component {
     const {
       type,
       content,
-      classes
+      classes,
+      isDismissable,
+      closeOnClick
     } = this.props;
     
     const calculatedClassNames = `Alert Alert--${type} ${ classnames( { classes } ) }`
@@ -76,6 +79,16 @@ export default class Alert extends React.Component {
             <div className='Alert-content' ref={ this.alertContent } tabIndex='-1'>
               { content }
             </div>
+
+            { isDismissable &&
+              <button
+                className='Alert-close'
+                onClick={ closeOnClick }
+                aria-label='Close'
+              >
+                <FaClose/>
+              </button>
+            }
           </div>
         }
      </React.Fragment>
