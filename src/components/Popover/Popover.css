@@ -23,14 +23,11 @@
   max-width: 200px;
   box-shadow: var(--box-shadow-xl);
   transform-origin: top left;
-  transform: scaleY(0);
   opacity: 0;
-  transition: transform calc(var(--anim-speed) / 2) var(--anim-easing),
-              opacity calc(var(--anim-speed) / 2) var(--anim-easing);
+  transition: opacity calc(var(--anim-speed) / 2) var(--anim-easing);
 }
 
 .Popover-content.is-open {
-  transform: scaleY(1);
   opacity: 1;
 }
 
