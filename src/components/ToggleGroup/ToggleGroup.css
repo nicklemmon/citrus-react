@@ -1,0 +1,39 @@
+.ToggleGroup {
+  display: inline-flex;
+  border: 1px solid var(--gray);
+  border-radius: var(--border-radius);
+  background-color: var(--white);
+  box-shadow: var(--box-shadow-sm);
+}
+
+.ToggleGroup-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--font-size-md);
+  color: var(--blue);
+  border-left: 1px solid var(--light-gray);
+  cursor: pointer;
+  padding: var(--spacing-md) var(--spacing-lg);
+  transition: color var(--anim-speed) var(--anim-easing),
+              background-color var(--anim-speed) var(--anim-easing);
+}
+
+.ToggleGroup-button:first-of-type {
+  border-radius: var(--border-radius) 0 0 var(--border-radius);
+  border-left: 0;
+}
+
+.ToggleGroup-button:last-of-type {
+  border-radius: 0 var(--border-radius) var(--border-radius) 0;
+}
+
+.ToggleGroup-button.is-active {
+  color: var(--white);
+  background-color: var(--blue);
+}
+
+.ToggleGroup-button:hover,
+.ToggleGroup-button:focus {
+  background-color: var(--dark-white);
+}

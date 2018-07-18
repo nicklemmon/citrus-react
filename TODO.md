@@ -9,7 +9,7 @@
 * [ ] Form
 * [ ] Accordion group
 * [ ] Table
-* [ ] Popover
+* [X] Popover
 
 #### Features
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
+import { withInfo } from '@storybook/addon-info';
 import { linkTo } from '@storybook/addon-links';
 import { Welcome } from '@storybook/react/demo';
 import { Router } from 'react-router';
@@ -18,6 +19,8 @@ import ModalLauncher from '../components/Modal/ModalLauncher.jsx';
 import Accordion from '../components/Accordion/Accordion.jsx';
 import Popover from '../components/Popover/Popover.jsx';
 import PopoverItem from '../components/Popover/PopoverItem.jsx';
+import ToggleGroup from '../components/ToggleGroup/ToggleGroup.jsx';
+
 
 storiesOf( 'Welcome', module ).add( 'to Storybook', () => <Welcome showApp={ linkTo( 'Button' ) } /> );
 
@@ -27,13 +30,6 @@ storiesOf( 'Button', module )
   .add( 'with secondary type', () => <Button type='secondary' content='Secondary!' /> )
   .add( 'with tertiary type', () => <Button type='tertiary' content='Tertiary!' /> )
   .add( 'with full width style', () => <Button fullWidth={ true } content='Full width!' /> )
-  .add( 'with link', () => {
-    return (
-      <Router>
-        <Button linkTo={ undefined } content='With Link' />
-      </Router>
-    )
-  } )
 
 storiesOf( 'Heading', module )
   .add( 'with level 1', () => <Heading level='1' content='Heading level 1' /> )
@@ -180,5 +176,27 @@ storiesOf( 'Popover', module )
 
         <PopoverItem content='Item 3'/>
       </Popover>
+    )
+  })
+
+storiesOf( 'ToggleGroup', module )
+  .add( 'with some stuff', () => {
+    const stuff = [
+      {
+        content: '1'
+      },
+      {
+        content: '2'
+      },
+      {
+        content: '3'
+      }
+    ]
+    return (
+      <ToggleGroup
+        id='example'
+        type='radio'
+        buttons={ stuff }
+      />
     )
   })
