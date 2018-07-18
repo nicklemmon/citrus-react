@@ -3,6 +3,7 @@
   border: 1px solid var(--gray);
   border-radius: var(--border-radius);
   background-color: var(--white);
+  overflow: hidden;
   box-shadow: var(--box-shadow-sm);
 }
 
@@ -12,20 +13,25 @@
   justify-content: center;
   font-size: var(--font-size-md);
   color: var(--blue);
-  border-left: 1px solid var(--light-gray);
+  border-right: 1px solid var(--light-gray);
   cursor: pointer;
   padding: var(--spacing-md) var(--spacing-lg);
   transition: color var(--anim-speed) var(--anim-easing),
               background-color var(--anim-speed) var(--anim-easing);
 }
 
-.ToggleGroup-button:first-of-type {
-  border-radius: var(--border-radius) 0 0 var(--border-radius);
-  border-left: 0;
+.ToggleGroup-button:last-of-type {
+  border-right: 0;
 }
 
-.ToggleGroup-button:last-of-type {
-  border-radius: 0 var(--border-radius) var(--border-radius) 0;
+.ToggleGroup-button:focus {
+  outline: 1px dashed currentColor;
+  outline-offset: -3px;
+}
+
+.ToggleGroup-button:hover,
+.ToggleGroup-button:focus {
+  background-color: var(--dark-white);
 }
 
 .ToggleGroup-button.is-active {
@@ -33,7 +39,7 @@
   background-color: var(--blue);
 }
 
-.ToggleGroup-button:hover,
-.ToggleGroup-button:focus {
-  background-color: var(--dark-white);
+.ToggleGroup-button.is-active:hover,
+.ToggleGroup-button.is-active:focus {
+  background-color: var(--dark-blue);
 }

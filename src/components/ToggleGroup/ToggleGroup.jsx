@@ -4,6 +4,22 @@ import classNames from 'classnames';
 import './ToggleGroup.css';
 
 export default class ToggleGroup extends React.Component {
+  constructor( props ) {
+    super( props )
+
+    this.state = {
+      activeIndex: null
+    }
+
+    this.activateButton = this.activateButton.bind( this );
+  }
+
+  activateButton( buttonIndex ) {
+    this.setState({
+      activeIndex: buttonIndex
+    })
+  }
+
   render() {
     const {
       id,
@@ -14,7 +30,7 @@ export default class ToggleGroup extends React.Component {
 
     const classes = classNames( 'ToggleGroup', className, {
       'ToggleGroup--radio': type === 'radio',
-      'ToggleGroup--checkbox': type === 'checkbox'
+      'ToggleGroup--checkbox': type === 'checkbox',
     });
 
     return (
@@ -24,13 +40,21 @@ export default class ToggleGroup extends React.Component {
         role={ type === 'radio' ? 'radiogroup' : undefined }
       >
         { Object.keys( buttons ).map( ( button, index ) => {
+            const activeIndex = this.state.activeIndex;
+
+            const buttonClasses = classNames( 'ToggleGroup-button', {
+              'is-active': activeIndex === index
+            });
+
             return (
               <div
-                className='ToggleGroup-button'
+                className={ buttonClasses }
                 tabIndex={ type === 'radio' ? '-1' : '0' }
                 id={ `${id}-${index}` }
                 key={ `${id}-${index}` }
                 role={ type === 'radio' ? 'radio' : 'checkbox' }
+                aria-checked={ activeIndex === index ? 'true' : 'false' }
+                onClick={ () => this.activateButton( index ) }
               >
                 { buttons[button].content }
               </div>
