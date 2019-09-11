@@ -9,13 +9,13 @@
   --blue: #2c60eb;
   --dark-blue: #232ff5;
   --darker-blue: #1722c2;
-  
+
   /* Status colors */
   --error: #f52351;
   --success: #11e234;
   --attention: #f5bd23;
   --info: #237ef5;
-  
+
   /* Spacing */
   --spacing-xxs: 0.1rem;
   --spacing-xs: 0.2rem;
@@ -24,15 +24,15 @@
   --spacing-lg: 1.6rem;
   --spacing-xl: 3.2rem;
   --spacing-xxl: 6.4rem;
-  
+
   /* Animation */
   --anim-speed: 0.33s;
   --anim-easing: ease-in-out;
-  
+
   /* Font families */
   --font-family-primary: sans-serif;
   --font-family-secondary: sans-serif;
-  
+
   /* Font sizes - modular scale ratio 1.333 */
   --font-size-xxs: 0.42rem;
   --font-size-xs: 0.56rem;
@@ -41,14 +41,14 @@
   --font-size-lg: 1.33rem;
   --font-size-xl: 1.77rem;
   --font-size-xxl: 2.37rem;
-  
+
   /* Breakpoints */
   --breakpoint-xs: 480px;
   --breakpoint-sm: 736px;
   --breakpoint-md: 980px;
   --breakpoint-lg: 1280px;
   --breakpoint-xl: 1690px;
-  
+
   /* Z-index */
   --z-index-xxs: -15;
   --z-index-xs: -10;
@@ -57,13 +57,13 @@
   --z-index-lg: 5;
   --z-index-xl: 10;
   --z-index-xxl: 15;
-  
+
   /* Box-shadow */
   --box-shadow-sm: 0 0.25rem 0.5rem -0.25rem rgba(0, 0, 0, 0.33);
   --box-shadow-md: 0 0.33rem 0.75rem -0.25rem rgba(0, 0, 0, 0.25);
   --box-shadow-lg: 0 0.5rem 1.33rem -0.25rem rgba(0, 0, 0, 0.15);
   --box-shadow-xl: 0 0.66rem 1.66rem -0.25rem rgba(0, 0, 0, 0.15);
-  
+
   /* Misc */
   --border-radius: 7px;
   --header-footer-height: 4rem;

@@ -1,20 +1,14 @@
-import React from 'react';
+import React from 'react'
 
-import './PopoverItem.css';
+import './PopoverItem.css'
 
 export default class PopoverItem extends React.Component {
   render() {
-    const {
-      onClick,
-      content
-    } = this.props;
+    const { onClick, content } = this.props
 
     return (
-      <button
-        className='PopoverItem'
-        onClick={ onClick }
-      >
-        { content }
+      <button className="PopoverItem" onClick={onClick}>
+        {content}
       </button>
     )
   }

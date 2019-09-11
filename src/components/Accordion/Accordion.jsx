@@ -1,16 +1,16 @@
-import React from 'react';
+import React from 'react'
 import classNames from 'classnames'
-import FaAngleRight from 'react-icons/lib/fa/angle-right';
+import FaAngleRight from 'react-icons/lib/fa/angle-right'
 
-import './Accordion.css';
+import './Accordion.css'
 
 export default class Accordion extends React.Component {
-  constructor( props ) {
-    super( props );
+  constructor(props) {
+    super(props)
 
-    this.open = this.open.bind( this );
-    this.close = this.close.bind( this );
-    this.toggle = this.toggle.bind( this );
+    this.open = this.open.bind(this)
+    this.close = this.close.bind(this)
+    this.toggle = this.toggle.bind(this)
 
     this.state = {
       isOpen: false
@@ -36,43 +36,35 @@ export default class Accordion extends React.Component {
   }
 
   render() {
-    const {
-      className,
-      triggerContent,
-      children,
-      type
-    } = this.props;
-    const isOpen = this.props.isOpen || this.state.isOpen;
-    const classes = classNames( 'Accordion', className, {
+    const { className, triggerContent, children, type } = this.props
+    const isOpen = this.props.isOpen || this.state.isOpen
+    const classes = classNames('Accordion', className, {
       'is-open': isOpen,
       'Accordion--minimal': type === 'minimal'
-    });
-    const triggerClasses = classNames( 'Accordion-trigger', {
+    })
+    const triggerClasses = classNames('Accordion-trigger', {
       'Accordion-trigger--minimal': type === 'minimal'
-    });
-    const iconClasses = classNames( 'Accordion-icon', {
+    })
+    const iconClasses = classNames('Accordion-icon', {
       'is-open': isOpen
-    });
-    const contentClasses = classNames( 'Accordion-content', {
+    })
+    const contentClasses = classNames('Accordion-content', {
       'is-open': isOpen
-    });
-
+    })
 
     return (
-      <div className={ classes }>
+      <div className={classes}>
         <button
-          className={ triggerClasses }
-          onClick={ this.toggle }
-          aria-expanded={ isOpen }
+          className={triggerClasses}
+          onClick={this.toggle}
+          aria-expanded={isOpen}
         >
-          <FaAngleRight className={ iconClasses }/>
+          <FaAngleRight className={iconClasses} />
 
-          { triggerContent }
+          {triggerContent}
         </button>
 
-        <div className={ contentClasses }>
-          { children }
-        </div>
+        <div className={contentClasses}>{children}</div>
       </div>
     )
   }

@@ -17,7 +17,7 @@
   cursor: pointer;
   padding: var(--spacing-md) var(--spacing-lg);
   transition: color var(--anim-speed) var(--anim-easing),
-              background-color var(--anim-speed) var(--anim-easing);
+    background-color var(--anim-speed) var(--anim-easing);
 }
 
 .ToggleGroup-button:last-of-type {

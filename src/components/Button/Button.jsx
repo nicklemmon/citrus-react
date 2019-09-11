@@ -1,7 +1,7 @@
-import React from 'react';
-import classnames from 'classnames';
-import { NavLink } from 'react-router-dom';
-import './Button.css';
+import React from 'react'
+import classnames from 'classnames'
+import { NavLink } from 'react-router-dom'
+import './Button.css'
 
 export default class Button extends React.Component {
   render() {
@@ -13,33 +13,35 @@ export default class Button extends React.Component {
       fullWidth,
       role,
       tabIndex
-    } = this.props;
-    const calculatedClassNames = `Button Button--${ type } ${ classnames( { classes } ) }`;
-    const styles = { width: fullWidth ? '100%' : '' };
+    } = this.props
+    const calculatedClassNames = `Button Button--${type} ${classnames({
+      classes
+    })}`
+    const styles = { width: fullWidth ? '100%' : '' }
 
     return (
       <React.Fragment>
-        { linkTo ?
+        {linkTo ? (
           <NavLink
-            className={ calculatedClassNames } 
-            style={ styles }
-            to={ linkTo }
-            role={ role }
-            tabIndex={ tabIndex }
+            className={calculatedClassNames}
+            style={styles}
+            to={linkTo}
+            role={role}
+            tabIndex={tabIndex}
           >
-            { content }
+            {content}
           </NavLink>
-        :
+        ) : (
           <button
-            className={ calculatedClassNames } 
-            style={ styles }
-            onClick={ this.props.onClick }
-            role={ role }
-            tabIndex={ tabIndex }
+            className={calculatedClassNames}
+            style={styles}
+            onClick={this.props.onClick}
+            role={role}
+            tabIndex={tabIndex}
           >
-            { content }
+            {content}
           </button>
-        }
+        )}
       </React.Fragment>
     )
   }

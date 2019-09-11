@@ -1,18 +1,18 @@
-import React from 'react';
-import classNames from 'classnames';
-import FaCaretRight from 'react-icons/lib/fa/caret-right';
+import React from 'react'
+import classNames from 'classnames'
+import FaCaretRight from 'react-icons/lib/fa/caret-right'
 
-import './Popover.css';
+import './Popover.css'
 
 export default class Popover extends React.Component {
-  constructor( props ) {
-    super( props );
+  constructor(props) {
+    super(props)
 
     this.state = {
       isOpen: false
     }
 
-    this.toggle = this.toggle.bind( this );
+    this.toggle = this.toggle.bind(this)
   }
 
   toggle() {
@@ -22,41 +22,34 @@ export default class Popover extends React.Component {
   }
 
   render() {
-    const {
-      className,
-      children,
-      buttonContent
-    } = this.props;
+    const { className, children, buttonContent } = this.props
 
-    const isOpen = this.state.isOpen;
+    const isOpen = this.state.isOpen
 
-    const classes = classNames( 'Popover', className, {
+    const classes = classNames('Popover', className, {
       'is-open': isOpen
-    });
-    const contentClasses = classNames( 'Popover-content', {
+    })
+    const contentClasses = classNames('Popover-content', {
       'is-open': isOpen
-    });
-    const iconClasses = classNames( 'Popover-icon', {
+    })
+    const iconClasses = classNames('Popover-icon', {
       'is-rotated': isOpen
-    });
+    })
 
     return (
-      <div className={ classes }>
+      <div className={classes}>
         <button
-          className='Popover-launcher'
-          aria-expanded={ isOpen }
-          onClick={ this.toggle }
+          className="Popover-launcher"
+          aria-expanded={isOpen}
+          onClick={this.toggle}
         >
-          { buttonContent }
+          {buttonContent}
 
-          <FaCaretRight className={ iconClasses }/>
+          <FaCaretRight className={iconClasses} />
         </button>
 
-        <div
-          className={ contentClasses }
-          aria-hidden={ !isOpen }
-        >
-          { children }
+        <div className={contentClasses} aria-hidden={!isOpen}>
+          {children}
         </div>
       </div>
     )
