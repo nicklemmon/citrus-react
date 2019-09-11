@@ -12,11 +12,6 @@
     }
   },
   "rules": {
-    "space-before-function-paren": [ "error", "never" ],
-    "space-in-parens": [ "error", "always" ],
-    "react/prop-types": 0,
-    "no-extra-semi": [ "error", "always" ],
-    "semi": [ "error", "always" ],
-    "array-bracket-spacing": [ "error", "always" ]
+    "react/prop-types": 0
   }
 }
