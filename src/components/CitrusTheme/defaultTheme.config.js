@@ -1,6 +1,6 @@
 export default {
   fontSizes: ['12px', '14px', '16px', '20px', '24px', '32px'],
-  space: [0, 4, 8, 16, 32, 64, 128, 256],
+  space: ['0', '4px', '8px', '16px', '32px', '64px', '128px', '256px'],
   colors: {
     white: '#fff',
     darkWhite: '#ececec',

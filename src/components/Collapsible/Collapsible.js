@@ -1,42 +1,45 @@
-import React from 'react'
+import React, { useState, cloneElement, isValidElement } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { color, space } from 'styled-system'
+import { CollapsibleContext } from './CollapsibleContext'
 
 export default function Collapsible(props) {
-  const { buttonContent, children, isOpen, id, onClick } = props
+  const [eventType, setEventType] = useState(undefined)
+  const [isOpen, setIsOpen] = useState(props.isOpen)
+
   const CollapsibleWrapper = styled.div`
     ${color}
     ${space}
     border: 1px solid ${props => props.theme.colors.lightGray};
-    border-radius: ${props => props.theme.radii[0]};
-    overflow: hidden;
   `
-  const CollapsibleButton = styled.button`
-    border: 0;
-    outline: 0;
-    width: 100%;
-    text-align: left;
-    font-size: ${props => props.theme.fontSizes[2]};
-    padding: ${props => props.theme.space[2]}px;
-  `
-  const CollapsibleContent = styled.div`
-    padding: ${props => props.theme.space[2]}px;
-    font-size: ${props => props.theme.fontSizes[2]};
-    display: ${isOpen ? 'block' : 'none'};
-  `
+
+  const renderChildren = () => {
+    return React.Children.map(props.children, child => {
+      if (!isValidElement(child)) return
+
+      if (child.type.name === 'CollapsibleButton') {
+        return cloneElement(child, { 'aria-controls': props.id })
+      }
+
+      if (child.type.name === 'CollapsibleContent') {
+        return cloneElement(child, { id: props.id })
+      }
+    })
+  }
 
   return (
     <CollapsibleWrapper {...props}>
-      <CollapsibleButton
-        aria-controls={id}
-        aria-expanded={isOpen}
-        onClick={onClick}
+      <CollapsibleContext.Provider
+        value={{
+          eventType: eventType,
+          setEventType: setEventType,
+          isOpen: isOpen,
+          setIsOpen: setIsOpen
+        }}
       >
-        {buttonContent}
-      </CollapsibleButton>
-
-      <CollapsibleContent id={id}>{children}</CollapsibleContent>
+        {renderChildren()}
+      </CollapsibleContext.Provider>
     </CollapsibleWrapper>
   )
 }

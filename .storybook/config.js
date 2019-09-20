@@ -6,8 +6,12 @@ configure(require.context('../src/components', true, /\.stories\.js$/), module)
 
 import CitrusThemeProvider from '../src/components/CitrusTheme'
 
-function withTheme(getStory) {
-  return <CitrusThemeProvider>{getStory()}</CitrusThemeProvider>
+function withThemeAndGlobalStyles(getStory) {
+  return (
+    <CitrusThemeProvider>
+      <div style={{ padding: 40 }}>{getStory()}</div>
+    </CitrusThemeProvider>
+  )
 }
 
-addDecorator(withTheme)
+addDecorator(withThemeAndGlobalStyles)

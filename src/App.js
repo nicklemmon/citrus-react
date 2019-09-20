@@ -1,18 +1,23 @@
-import React, { Component } from 'react'
+import React, { Component, useState } from 'react'
 import CitrusThemeProvider from './components/CitrusTheme/CitrusThemeProvider'
 import './App.css'
-import Accordion from './components/Accordion/Accordion'
+import Collapsible from './components/Collapsible'
 
-class App extends Component {
-  render() {
-    return (
-      <CitrusThemeProvider>
-        <Accordion bg="red" my={3} buttonContent="Click Me">
+function App() {
+  const [isOpen, setIsOpen] = useState(false)
+  const handleClick = () => setIsOpen(!isOpen)
+
+  return (
+    <CitrusThemeProvider>
+      <main>
+        <button onClick={handleClick}>Toggle</button>
+
+        <Collapsible id="my-id" isOpen={isOpen} buttonContent="Click Me">
           <p>Hello world.</p>
-        </Accordion>
-      </CitrusThemeProvider>
-    )
-  }
+        </Collapsible>
+      </main>
+    </CitrusThemeProvider>
+  )
 }
 
 export default App
