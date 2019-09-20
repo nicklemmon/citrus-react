@@ -11,14 +11,11 @@ export default function Collapsible(props) {
   const CollapsibleWrapper = styled.div`
     ${color}
     ${space}
-    border: 1px solid ${props => props.theme.colors.lightGray};
   `
 
   const renderChildren = () => {
     return React.Children.map(props.children, child => {
       if (!isValidElement(child)) return
-
-      console.log(child.type.name === 'CollapsibleButton')
 
       if (
         child.type.name === 'CollapsibleButton' ||
