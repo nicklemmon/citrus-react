@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect, useRef } from 'react'
+import React, { useContext, useEffect, useRef } from 'react'
 import styled from 'styled-components'
 import { CollapsibleContext } from './CollapsibleContext'
 

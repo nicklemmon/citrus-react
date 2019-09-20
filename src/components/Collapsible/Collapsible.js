@@ -18,12 +18,23 @@ export default function Collapsible(props) {
     return React.Children.map(props.children, child => {
       if (!isValidElement(child)) return
 
-      if (child.type.name === 'CollapsibleButton') {
-        return cloneElement(child, { 'aria-controls': props.id })
-      }
+      console.log(child.type.name === 'CollapsibleButton')
 
-      if (child.type.name === 'CollapsibleContent') {
-        return cloneElement(child, { id: props.id })
+      if (
+        child.type.name === 'CollapsibleButton' ||
+        child.type.name === 'CollapsibleContent'
+      ) {
+        if (child.type.name === 'CollapsibleButton') {
+          return cloneElement(child, { 'aria-controls': props.id })
+        }
+
+        if (child.type.name === 'CollapsibleContent') {
+          return cloneElement(child, { id: props.id })
+        }
+      } else {
+        console.error(
+          `Invalid child component '${child.type.name}' - Only 'CollapsibleButton' and 'CollapsibleContent' are valid children of 'Collapsible'`
+        )
       }
     })
   }
@@ -48,7 +59,6 @@ Collapsible.propTypes = {
   ...color.propTypes,
   ...space.propTypes,
   id: PropTypes.string.isRequired,
-  buttonContent: PropTypes.string.isRequired,
   children: PropTypes.node.isRequired,
   onClick: PropTypes.func,
   isOpen: PropTypes.bool
