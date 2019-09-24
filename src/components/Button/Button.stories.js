@@ -32,7 +32,7 @@ storiesOf('Button', module)
       </Button>
     )
   })
-  .add('all variants in a row', () => {
+  .add('all variants in a ButtonWrapper', () => {
     return (
       <ButtonWrapper>
         <Button variant="primary">
@@ -47,5 +47,26 @@ storiesOf('Button', module)
           Cancel
         </Button>
       </ButtonWrapper>
+    )
+  })
+  .add('full width', () => {
+    return (
+      <Button isFullWidth>
+        Click Me
+      </Button>
+    )
+  })
+  .add('disabled', () => {
+    return (
+      <Button isDisabled>
+        Click Me
+      </Button>
+    )
+  })
+  .add('small', () => {
+    return (
+      <Button isSmall>
+        Click Me
+      </Button>
     )
   })
