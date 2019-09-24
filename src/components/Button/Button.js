@@ -9,16 +9,33 @@ export default function Button(props) {
     color: ${props => props.theme.colors.white};
     background-color: ${props => props.theme.colors.blue};
     border-color: ${props => props.theme.colors.blue};
+
+    &:hover {
+      background-color: ${props => props.theme.colors.darkBlue};
+      border-color: ${props => props.theme.colors.darkBlue};
+    }
   `
   const secondaryStyles = css`
     color: ${props => props.theme.colors.blue};
     background-color: ${props => props.theme.colors.white};
     border-color: ${props => props.theme.colors.blue};
+
+    &:hover {
+      color: ${props => props.theme.colors.darkBlue};
+      background-color: ${props => props.theme.colors.offWhite};
+      border-color: ${props => props.theme.colors.darkBlue};
+    }
   `
   const tertiaryStyles = css`
     color: ${props => props.theme.colors.blue};
     background-color: ${props => props.theme.colors.white};
     border-color: ${props => props.theme.colors.white};
+
+    &:hover {
+      color: ${props => props.theme.colors.darkBlue};
+      background-color: ${props => props.theme.colors.offWhite};
+      border-color: ${props => props.theme.colors.offWhite};
+    }
   `
   const Button = styled.button`
     ${space}
@@ -29,6 +46,12 @@ export default function Button(props) {
     border: 2px solid #000;
     cursor: ${isDisabled ? 'not-allowed' : 'pointer'};
     border-radius: ${props => props.theme.radii[0]};
+    transition: background-color ${props =>
+      props.theme.animation.timing} ${props =>
+    props.theme.animation.easing}, border-color ${props =>
+    props.theme.animation.timing} ${props =>
+    props.theme.animation.easing}, color ${props =>
+    props.theme.animation.timing} ${props => props.theme.animation.easing};
     ${variant === 'primary' && primaryStyles}
     ${variant === 'secondary' && secondaryStyles}
     ${variant === 'tertiary' && tertiaryStyles}
