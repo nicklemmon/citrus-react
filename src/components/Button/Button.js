@@ -76,7 +76,8 @@ export default function Button(props) {
           `
     };
     background: none;
-    border: 2px solid #000;
+    border: 1px solid #000;
+    outline: none;
     border-radius: ${props => props.theme.radii[0]};
     ${variant === 'primary' && primaryStyles}
     ${variant === 'secondary' && secondaryStyles}
@@ -89,8 +90,13 @@ export default function Button(props) {
     props.theme.animation.easing}, border-color ${props =>
     props.theme.animation.timing} ${props =>
     props.theme.animation.easing}, color ${props =>
+    props.theme.animation.timing} ${props =>
+    props.theme.animation.easing}, box-shadow ${props =>
     props.theme.animation.timing} ${props => props.theme.animation.easing};
 
+    &:focus {
+      box-shadow: 0 0 0 5px ${props => props.theme.colors.blue}66;
+    }
   `
 
   return (

@@ -3,6 +3,7 @@ import styled from 'styled-components'
 
 export default function ButtonWrapper(props) {
   const ButtonWrapper = styled.div`
+    width: 100%;
     margin-top: ${props => props.theme.space[3]};
   `
 
