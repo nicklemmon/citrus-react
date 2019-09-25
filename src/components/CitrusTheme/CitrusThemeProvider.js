@@ -6,7 +6,7 @@ export default function CitrusThemeProvider(props) {
   const { customConfig, children } = props
   const MergedThemeConfig = Object.assign({}, defaultTheme, customConfig)
   const GlobalStyles = createGlobalStyle`
-    @import url('https://fonts.googleapis.com/css?family=Rubik&display=swap');
+    @import url('https://fonts.googleapis.com/css?family=Rubik:400,500&display=swap');
 
     * {
       box-sizing: border-box;

@@ -22,14 +22,23 @@ export default function CollapsibleButton(props) {
     text-align: left;
     padding: ${props => props.theme.space[2]};
     cursor: pointer;
+    outline: none;
     border-radius: ${props =>
       isOpen
         ? `${props.theme.radii[0]} ${props.theme.radii[0]} 0 0`
         : props.theme.radii[0]};
     border: 1px solid ${props => props.theme.colors.lightGray};
+    transition: background-color ${props => props.theme.animation.timing}
+        ${props => props.theme.animation.easing},
+      box-shadow ${props => props.theme.animation.timing}
+        ${props => props.theme.animation.easing};
 
     :hover {
       background-color: ${props => props.theme.colors.offWhite};
+    }
+
+    &:focus {
+      box-shadow: 0 0 0 3px ${props => props.theme.colors.blue}66;
     }
   `
   const iconWrapperStyles = css`

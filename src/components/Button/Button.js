@@ -95,7 +95,7 @@ export default function Button(props) {
     props.theme.animation.timing} ${props => props.theme.animation.easing};
 
     &:focus {
-      box-shadow: 0 0 0 5px ${props => props.theme.colors.blue}66;
+      box-shadow: 0 0 0 3px ${props => props.theme.colors.blue}66;
     }
   `
 

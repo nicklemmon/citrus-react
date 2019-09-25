@@ -1,8 +1,10 @@
 import React, { cloneElement, isValidElement } from 'react'
 import styled from 'styled-components'
+import { space } from 'styled-system'
 
 export default function ButtonWrapper(props) {
   const ButtonWrapper = styled.div`
+    ${space}
     width: 100%;
     margin-top: ${props => props.theme.space[3]};
   `
@@ -26,4 +28,8 @@ export default function ButtonWrapper(props) {
   }
 
   return <ButtonWrapper>{renderChildren()}</ButtonWrapper>
+}
+
+ButtonWrapper.propTypes = {
+  ...space.propTypes
 }
