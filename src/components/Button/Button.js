@@ -4,15 +4,7 @@ import styled, { css } from 'styled-components'
 import { space, color } from 'styled-system'
 
 export default function Button(props) {
-  const {
-    variant,
-    to,
-    isFullWidth,
-    isSmall,
-    isDisabled,
-    children,
-    className
-  } = props
+  const { variant, to, isFullWidth, isSmall, isDisabled, children } = props
   const primaryStyles = css`
     color: ${props => props.theme.colors.white};
     background-color: ${props => props.theme.colors.blue};
@@ -82,8 +74,8 @@ export default function Button(props) {
     ${variant === 'primary' && primaryStyles}
     ${variant === 'secondary' && secondaryStyles}
     ${variant === 'tertiary' && tertiaryStyles}
-    width: ${isFullWidth ? '100%' : 'auto'};
     cursor: ${isDisabled ? 'not-allowed' : 'pointer'};
+    width: 100%;
     ${isDisabled && 'opacity: 0.75'};
     transition: background-color ${props =>
       props.theme.animation.timing} ${props =>
@@ -97,10 +89,14 @@ export default function Button(props) {
     &:focus {
       box-shadow: 0 0 0 3px ${props => props.theme.colors.blue}66;
     }
+
+    @media (min-width: ${props => props.theme.breakpoints[0]}) {
+      width: ${isFullWidth ? '100%' : 'auto'};
+    }
   `
 
   return (
-    <Button className={className} {...props}>
+    <Button {...props}>
       <span>{children}</span>
     </Button>
   )

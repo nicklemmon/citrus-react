@@ -7,7 +7,7 @@ export default function CollapsibleContent(props) {
   const { id, children } = props
   const { isOpen } = useContext(CollapsibleContext)
   const CollapsibleContent = styled.div`
-    padding: ${props => props.theme.space[2]};
+    padding: ${props => props.theme.space[3]};
     font-size: ${props => props.theme.fontSizes[1]};
     display: ${isOpen ? 'block' : 'none'};
     border: 1px solid ${props => props.theme.colors.lightGray};

@@ -9,8 +9,7 @@ export default function CardHeading(props) {
     ${Heading} {
       font-size: ${props => props.theme.fontSizes[1]};
       color: ${props => props.theme.colors.darkGray};
-      letter-spacing: 0.025rem;
-      font-weight: 500;
+      letter-spacing: 0.02rem;
     }
   `
 

@@ -32,5 +32,6 @@ export default {
   animation: {
     timing: '0.25s',
     easing: 'ease-in-out'
-  }
+  },
+  breakpoints: ['320px', '768px', '1080px', '1400px']
 }

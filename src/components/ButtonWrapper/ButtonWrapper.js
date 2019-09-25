@@ -7,6 +7,15 @@ export default function ButtonWrapper(props) {
     ${space}
     width: 100%;
     margin-top: ${props => props.theme.space[3]};
+
+    > * + * {
+      margin-top: ${props => props.theme.space[1]};
+
+      @media (min-width: ${props => props.theme.breakpoints[0]}) {
+        margin-top: 0;
+        margin-left: ${props => props.theme.space[1]};
+      }
+    }
   `
 
   const renderChildren = () => {
@@ -14,11 +23,7 @@ export default function ButtonWrapper(props) {
       if (!isValidElement(child)) return
 
       if (child.type.name === 'Button') {
-        // For the last button in the list of children, just return the button
-        if (index === props.children.length - 1) return cloneElement(child)
-
-        // otherwise add some space
-        return cloneElement(child, { mr: 2 })
+        return cloneElement(child)
       } else {
         console.error(
           `Invalid child component '${child.type.name}' - Only 'Button' components are valid children of 'ButtonWrapper'`
