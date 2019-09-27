@@ -1,5 +1,5 @@
 export default {
-  space: ['0', '5px', '10px', '20px', '40px', '80px', '160px', '320px'],
+  space: ['0', '4px', '8px', '16px', '32px', '64px', '128px', '256px'],
   colors: {
     white: '#FFF',
     offWhite: '#ECF0F1',
@@ -33,5 +33,5 @@ export default {
     timing: '0.25s',
     easing: 'ease-in-out'
   },
-  breakpoints: ['320px', '768px', '1080px', '1400px']
+  breakpoints: ['450px', '768px', '1080px', '1400px']
 }

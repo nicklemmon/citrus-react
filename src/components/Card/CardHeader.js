@@ -8,7 +8,7 @@ export default function CardHeader(props) {
     border-radius: ${props => props.theme.radii[0]} ${props =>
     props.theme.radii[0]} 0 0;
     border-bottom: 1px solid ${props => props.theme.colors.offWhite};
-    padding: ${props => props.theme.space[2]} ${props => props.theme.space[3]};
+    padding: ${props => props.theme.space[3]};
   `
 
   return <CardHeader {...props}>{props.children}</CardHeader>

@@ -8,6 +8,7 @@ export default function CardHeading(props) {
   const HeadingWrapper = styled.span`
     ${Heading} {
       font-size: ${props => props.theme.fontSizes[1]};
+      font-weight: 500;
       color: ${props => props.theme.colors.darkGray};
       letter-spacing: 0.02rem;
     }

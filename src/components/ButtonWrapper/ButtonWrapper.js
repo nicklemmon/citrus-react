@@ -9,11 +9,11 @@ export default function ButtonWrapper(props) {
     margin-top: ${props => props.theme.space[3]};
 
     > * + * {
-      margin-top: ${props => props.theme.space[1]};
+      margin-top: ${props => props.theme.space[2]};
 
       @media (min-width: ${props => props.theme.breakpoints[0]}) {
         margin-top: 0;
-        margin-left: ${props => props.theme.space[1]};
+        margin-left: ${props => props.theme.space[2]};
       }
     }
   `

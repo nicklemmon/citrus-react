@@ -58,13 +58,15 @@ export default function Button(props) {
             ${props => props.theme.fontSizes[1]}
           `
     };
+    font-weight: 500;
+    letter-spacing: 0.0125rem;
     padding: ${
       isSmall
         ? css`
-            ${props => props.theme.space[1]} ${props => props.theme.space[1]}
+            ${props => props.theme.space[1]}
           `
         : css`
-            ${props => props.theme.space[2]} ${props => props.theme.space[2]}
+            ${props => props.theme.space[2]}
           `
     };
     background: none;
@@ -87,7 +89,7 @@ export default function Button(props) {
     props.theme.animation.timing} ${props => props.theme.animation.easing};
 
     &:focus {
-      box-shadow: 0 0 0 3px ${props => props.theme.colors.blue}66;
+      box-shadow: 0 0 0 4px ${props => props.theme.colors.blue}66;
     }
 
     @media (min-width: ${props => props.theme.breakpoints[0]}) {

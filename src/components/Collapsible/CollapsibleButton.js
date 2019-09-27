@@ -20,7 +20,7 @@ export default function CollapsibleButton(props) {
       isOpen ? props.theme.colors.offWhite : props.theme.colors.white};
     width: 100%;
     text-align: left;
-    padding: ${props => props.theme.space[2]} ${props => props.theme.space[3]};
+    padding: ${props => props.theme.space[3]};
     cursor: pointer;
     outline: none;
     border-radius: ${props =>
