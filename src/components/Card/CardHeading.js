@@ -6,7 +6,7 @@ import Heading from '../Heading'
 export default function CardHeading(props) {
   const { children, level } = props
   const HeadingWrapper = styled.span`
-    ${Heading} {
+    > * {
       font-size: ${props => props.theme.fontSizes[1]};
       font-weight: 500;
       color: ${props => props.theme.colors.darkGray};

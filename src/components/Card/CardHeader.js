@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { color } from 'styled-system'
 
 export default function CardHeader(props) {
-  const CardHeader = styled.div`
+  const StyledDiv = styled.div`
     ${color}
     border-radius: ${props => props.theme.radii[0]} ${props =>
     props.theme.radii[0]} 0 0;
@@ -11,7 +11,7 @@ export default function CardHeader(props) {
     padding: ${props => props.theme.space[3]};
   `
 
-  return <CardHeader {...props}>{props.children}</CardHeader>
+  return <StyledDiv {...props}>{props.children}</StyledDiv>
 }
 
 CardHeader.propTypes = {

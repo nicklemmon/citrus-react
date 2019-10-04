@@ -5,7 +5,7 @@ import { space } from 'styled-system'
 
 export default function Card(props) {
   const { children, hasShadow } = props
-  const Card = styled.div`
+  const StyledDiv = styled.div`
     ${space}
     border-radius: ${props => props.theme.radii[0]};
     border: 1px solid ${props => props.theme.colors.offWhite};
@@ -15,7 +15,7 @@ export default function Card(props) {
       `};
   `
 
-  return <Card {...props}>{children}</Card>
+  return <StyledDiv {...props}>{children}</StyledDiv>
 }
 
 Card.propTypes = {

@@ -1,5 +1,5 @@
 export default {
-  space: ['0', '4px', '8px', '16px', '32px', '64px', '128px', '256px'],
+  space: ['0', '3px', '6px', '12px', '24px', '32px', '64px', '128px'],
   colors: {
     white: '#FFF',
     offWhite: '#ECF0F1',

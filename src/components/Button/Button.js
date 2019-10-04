@@ -4,7 +4,15 @@ import styled, { css } from 'styled-components'
 import { space, color } from 'styled-system'
 
 export default function Button(props) {
-  const { variant, to, isFullWidth, isSmall, isDisabled, children } = props
+  const {
+    variant,
+    to,
+    isFullWidth,
+    isSmall,
+    isDisabled,
+    children,
+    isLoading
+  } = props
   const primaryStyles = css`
     color: ${props => props.theme.colors.white};
     background-color: ${props => props.theme.colors.blue};
@@ -63,10 +71,10 @@ export default function Button(props) {
     padding: ${
       isSmall
         ? css`
-            ${props => props.theme.space[1]}
+            ${props => props.theme.space[2]}
           `
         : css`
-            ${props => props.theme.space[2]}
+            ${props => props.theme.space[3]}
           `
     };
     background: none;
@@ -76,6 +84,15 @@ export default function Button(props) {
     ${variant === 'primary' && primaryStyles}
     ${variant === 'secondary' && secondaryStyles}
     ${variant === 'tertiary' && tertiaryStyles}
+    cursor: pointer;
+    ${isDisabled &&
+      css`
+        cursor: not-allowed;
+      `};
+    ${isLoading &&
+      css`
+        cursor: wait;
+      `};
     cursor: ${isDisabled ? 'not-allowed' : 'pointer'};
     width: 100%;
     ${isDisabled && 'opacity: 0.75'};

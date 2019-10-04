@@ -1,13 +1,25 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import styled from 'styled-components'
+import { space } from 'styled-system'
 
 export default function Heading(props) {
   const { level, children, alignment } = props
+  const StyledDiv = styled.div`
+    margin: 0;
+    font-weight: 700;
+    ${space}
+  `
 
   return (
-    <div role="heading" aria-level={level} style={{ textAlign: alignment }}>
+    <StyledDiv
+      role="heading"
+      aria-level={level}
+      style={{ textAlign: alignment }}
+      {...props}
+    >
       {children}
-    </div>
+    </StyledDiv>
   )
 }
 
