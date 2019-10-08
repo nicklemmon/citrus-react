@@ -4,10 +4,12 @@ import { TabsContext } from './TabsContext'
 
 export default function TabList(props) {
   const { children } = props
-  const { activeTabIndex, id } = useContext(TabsContext)
+  const { activeTabIndex, id, setTabsLength } = useContext(TabsContext)
   const StyledDiv = styled.div``
 
   const renderChildren = () => {
+    setTabsLength(React.Children.count(children) - 1)
+
     return React.Children.map(children, (child, index) => {
       if (!isValidElement(child)) return
 

@@ -5,7 +5,7 @@ import { TabsContext } from './TabsContext'
 
 export default function Tabs(props) {
   const { children, id, initialActiveTabIndex } = props
-  const [eventType, setEventType] = useState(undefined)
+  const [tabsLength, setTabsLength] = useState(undefined)
   const [activeTabIndex, setActiveTabIndex] = useState(initialActiveTabIndex)
 
   const StyledDiv = styled.div``
@@ -15,8 +15,8 @@ export default function Tabs(props) {
       <TabsContext.Provider
         value={{
           id,
-          eventType,
-          setEventType,
+          tabsLength,
+          setTabsLength,
           activeTabIndex,
           setActiveTabIndex
         }}
