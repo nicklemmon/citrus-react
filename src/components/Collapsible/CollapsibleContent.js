@@ -12,8 +12,7 @@ export default function CollapsibleContent(props) {
     display: ${isOpen ? 'block' : 'none'};
     border: 1px solid ${props => props.theme.colors.lightGray};
     border-top: 0;
-    border-radius: 0 0 ${props => props.theme.radii[0]}
-      ${props => props.theme.radii[0]};
+    border-radius: 0 0 ${props => props.theme.radii[0]} ${props => props.theme.radii[0]};
   `
 
   return <CollapsibleContent id={id}>{children}</CollapsibleContent>

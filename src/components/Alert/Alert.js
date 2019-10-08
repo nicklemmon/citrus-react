@@ -68,6 +68,7 @@ export default function Alert(props) {
   const AlertIconWrapper = styled.div``
   const AlertContent = styled.div`
     padding: ${props => props.theme.space[4]};
+    padding-left: 0;
   `
 
   return (

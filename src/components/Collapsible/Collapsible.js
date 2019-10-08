@@ -17,10 +17,7 @@ export default function Collapsible(props) {
     return React.Children.map(props.children, child => {
       if (!isValidElement(child)) return
 
-      if (
-        child.type.name === 'CollapsibleButton' ||
-        child.type.name === 'CollapsibleContent'
-      ) {
+      if (child.type.name === 'CollapsibleButton' || child.type.name === 'CollapsibleContent') {
         if (child.type.name === 'CollapsibleButton') {
           return cloneElement(child, { 'aria-controls': props.id })
         }
@@ -40,10 +37,10 @@ export default function Collapsible(props) {
     <CollapsibleWrapper {...props}>
       <CollapsibleContext.Provider
         value={{
-          eventType: eventType,
-          setEventType: setEventType,
-          isOpen: isOpen,
-          setIsOpen: setIsOpen
+          eventType,
+          setEventType,
+          isOpen,
+          setIsOpen
         }}
       >
         {renderChildren()}

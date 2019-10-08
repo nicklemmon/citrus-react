@@ -9,29 +9,23 @@ import Icon from '../Icon'
 export default function CollapsibleButton(props) {
   const buttonEl = useRef(null)
   const { id, children, hasLeftChevron, hasRightChevron } = props
-  const { eventType, setEventType, isOpen, setIsOpen } = useContext(
-    CollapsibleContext
-  )
+  const { eventType, setEventType, isOpen, setIsOpen } = useContext(CollapsibleContext)
 
   const CollapsibleButton = styled.button`
     border: 0;
     font-size: ${props => props.theme.fontSizes[1]};
-    background-color: ${props =>
-      isOpen ? props.theme.colors.offWhite : props.theme.colors.white};
+    background-color: ${props => (isOpen ? props.theme.colors.offWhite : props.theme.colors.white)};
     width: 100%;
     text-align: left;
     padding: ${props => props.theme.space[3]};
     cursor: pointer;
     outline: none;
     border-radius: ${props =>
-      isOpen
-        ? `${props.theme.radii[0]} ${props.theme.radii[0]} 0 0`
-        : props.theme.radii[0]};
+      isOpen ? `${props.theme.radii[0]} ${props.theme.radii[0]} 0 0` : props.theme.radii[0]};
     border: 1px solid ${props => props.theme.colors.lightGray};
     transition: background-color ${props => props.theme.animation.timing}
         ${props => props.theme.animation.easing},
-      box-shadow ${props => props.theme.animation.timing}
-        ${props => props.theme.animation.easing};
+      box-shadow ${props => props.theme.animation.timing} ${props => props.theme.animation.easing};
 
     :hover {
       background-color: ${props => props.theme.colors.offWhite};
@@ -53,9 +47,7 @@ export default function CollapsibleButton(props) {
   const RightIconWrapper = styled.span`
     ${iconWrapperStyles}
     float: right;
-    transform: ${isOpen
-      ? 'rotate(180deg) translateY(-2px)'
-      : 'translateY(-1px)'};
+    transform: ${isOpen ? 'rotate(180deg) translateY(-2px)' : 'translateY(-1px)'};
   `
   const ContentWrapper = styled.span`
     display: inline-flex;
