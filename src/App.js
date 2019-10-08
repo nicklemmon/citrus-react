@@ -1,21 +1,23 @@
-import React, { Component } from 'react'
-import logo from './logo.svg'
+import React, { Component, useState } from 'react'
+import CitrusThemeProvider from './components/CitrusTheme/CitrusThemeProvider'
 import './App.css'
+import Collapsible from './components/Collapsible'
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
-    )
-  }
+function App() {
+  const [isOpen, setIsOpen] = useState(false)
+  const handleClick = () => setIsOpen(!isOpen)
+
+  return (
+    <CitrusThemeProvider>
+      <main>
+        <button onClick={handleClick}>Toggle</button>
+
+        <Collapsible id="my-id" isOpen={isOpen} buttonContent="Click Me">
+          <p>Hello world.</p>
+        </Collapsible>
+      </main>
+    </CitrusThemeProvider>
+  )
 }
 
 export default App
