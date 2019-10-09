@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { TabsContext } from './TabsContext'
 
 export default function Tabs(props) {
-  const { children, id, initialActiveTabIndex } = props
+  const { children, id, initialActiveTabIndex, variant } = props
   const [tabsLength, setTabsLength] = useState(undefined)
   const [activeTabIndex, setActiveTabIndex] = useState(initialActiveTabIndex)
 
@@ -18,7 +18,8 @@ export default function Tabs(props) {
           tabsLength,
           setTabsLength,
           activeTabIndex,
-          setActiveTabIndex
+          setActiveTabIndex,
+          variant
         }}
       >
         {children}
@@ -34,5 +35,6 @@ Tabs.propTypes = {
 }
 
 Tabs.defaultProps = {
-  initialActiveTabIndex: 0
+  initialActiveTabIndex: 0,
+  variant: 'default'
 }

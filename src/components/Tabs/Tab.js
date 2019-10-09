@@ -6,28 +6,29 @@ import { TabsContext } from './TabsContext'
 export default function Tab(props) {
   const tabEl = useRef(null)
   const { id, children, index, isActive, isDisabled } = props
-  const { activeTabIndex, setActiveTabIndex, tabsLength, setTabsLength } = useContext(TabsContext)
+  const { activeTabIndex, setActiveTabIndex, tabsLength, variant } = useContext(TabsContext)
   const StyledButton = styled.button`
     font-size: ${props => props.theme.fontSizes[1]};
     padding: ${props => props.theme.space[3]};
     background-color: transparent;
-    border: 1px solid transparent;
+    border: ${variant === 'minimal' ? 0 : '1px solid transparent'};
     border-bottom: 0;
+    border-radius: ${props => props.theme.radii[0]} ${props => props.theme.radii[0]} 0 0;
     outline: none;
+    outline-offset: 2px;
     ${isDisabled ? 'cursor: not-allowed' : 'cursor: pointer'}
     ${isActive &&
+      variant !== 'minimal' &&
       css`
         border-color: ${props => props.theme.colors.lightGray};
         background-color: ${props => props.theme.colors.offWhite};
       `}
-
-    &:first-child {
-      border-radius: ${props => props.theme.radii[0]} 0 0 0;
-    }
-
-    &:last-child {
-      border-radius: 0 ${props => props.theme.radii[0]} 0 0;
-    }
+    ${isActive &&
+      variant === 'minimal' &&
+      css`
+        color: ${props => props.theme.colors.blue};
+        border-bottom: 4px solid ${props => props.theme.colors.blue};
+      `}
 
     &:focus {
       outline: 3px solid ${props => props.theme.colors.blue}66;

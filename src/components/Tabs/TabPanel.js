@@ -1,13 +1,14 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
+import { TabsContext } from './TabsContext'
 
 export default function TabPanel(props) {
   const { children, isActive, id, index } = props
   const StyledDiv = styled.div`
-    padding: ${props => props.theme.space[3]};
-    border: 1px solid ${props => props.theme.colors.lightGray};
+    padding: ${props => props.theme.space[4]} ${props => props.theme.space[3]};
     border-radius: 0 0 ${props => props.theme.radii[0]} ${props => props.theme.radii[0]};
+    border: 1px solid ${props => props.theme.colors.lightGray};
     display: ${isActive ? 'block' : 'none'};
   `
 
