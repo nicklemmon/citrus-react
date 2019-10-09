@@ -40,10 +40,10 @@ export default function Tab(props) {
   }
 
   const handleKeyDown = e => {
-    e.preventDefault() // Prevent page or container scrolling
-
     // Right arrow key
     if (e.keyCode === 39) {
+      e.preventDefault() // Prevent page or container scrolling
+
       if (activeTabIndex === tabsLength) {
         return setActiveTabIndex(0)
       }
@@ -53,6 +53,8 @@ export default function Tab(props) {
 
     // Left arrow key
     if (e.keyCode === 37) {
+      e.preventDefault() // Prevent page or container scrolling
+
       if (activeTabIndex === 0) {
         return setActiveTabIndex(tabsLength)
       }
