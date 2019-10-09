@@ -4,15 +4,7 @@ import styled, { css } from 'styled-components'
 import { space, color } from 'styled-system'
 
 export default function Button(props) {
-  const {
-    variant,
-    to,
-    isFullWidth,
-    isSmall,
-    isDisabled,
-    children,
-    isLoading
-  } = props
+  const { variant, to, isFullWidth, isSmall, isDisabled, children, isLoading } = props
   const primaryStyles = css`
     color: ${props => props.theme.colors.white};
     background-color: ${props => props.theme.colors.blue};
@@ -93,17 +85,13 @@ export default function Button(props) {
       css`
         cursor: wait;
       `};
-    cursor: ${isDisabled ? 'not-allowed' : 'pointer'};
     width: 100%;
     ${isDisabled && 'opacity: 0.75'};
-    transition: background-color ${props =>
-      props.theme.animation.timing} ${props =>
-    props.theme.animation.easing}, border-color ${props =>
-    props.theme.animation.timing} ${props =>
-    props.theme.animation.easing}, color ${props =>
-    props.theme.animation.timing} ${props =>
-    props.theme.animation.easing}, box-shadow ${props =>
-    props.theme.animation.timing} ${props => props.theme.animation.easing};
+    transition: background-color ${props => props.theme.animation.timing} ${props =>
+    props.theme.animation.easing}, border-color ${props => props.theme.animation.timing} ${props =>
+    props.theme.animation.easing}, color ${props => props.theme.animation.timing} ${props =>
+    props.theme.animation.easing}, box-shadow ${props => props.theme.animation.timing} ${props =>
+    props.theme.animation.easing};
 
     &:focus {
       box-shadow: 0 0 0 4px ${props => props.theme.colors.blue}66;
@@ -115,8 +103,8 @@ export default function Button(props) {
   `
 
   return (
-    <Button {...props}>
-      <span>{children}</span>
+    <Button {...props} aria-disabled={isDisabled ? 'true' : 'false'}>
+      <span>{isLoading ? 'Loading...' : children}</span>
     </Button>
   )
 }
