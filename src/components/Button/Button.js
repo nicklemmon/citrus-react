@@ -11,6 +11,7 @@ export default function Button(props) {
     border-color: ${props => props.theme.colors.blue};
 
     ${!isDisabled &&
+      !isLoading &&
       css`
         &:hover {
           background-color: ${props => props.theme.colors.darkBlue};
@@ -24,6 +25,7 @@ export default function Button(props) {
     border-color: ${props => props.theme.colors.blue};
 
     ${!isDisabled &&
+      !isLoading &&
       css`
         &:hover {
           color: ${props => props.theme.colors.darkBlue};
@@ -38,6 +40,7 @@ export default function Button(props) {
     border-color: ${props => props.theme.colors.white};
 
     ${!isDisabled &&
+      !isLoading &&
       css`
         &:hover {
           color: ${props => props.theme.colors.darkBlue};
