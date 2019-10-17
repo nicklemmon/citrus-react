@@ -1,0 +1,50 @@
+import { Meta, Story, Preview } from '@storybook/addon-docs/blocks'
+import Alert from './Alert'
+
+<Meta title="Alert" component={Alert} />
+
+# Alert
+
+## Used for providing important feedback to users
+
+<Preview>
+  <Story name="with required props only">
+    <Alert heading="Alert" variant="success">
+      <p>This is the alert content</p>
+    </Alert>
+  </Story>
+</Preview>
+
+### Variants
+
+Several variants allow for important information to be conveyed with distinct states.
+
+#### Success
+
+<Preview>
+  <Story name="success variant">
+    <Alert heading="Success Alert" variant="success">
+      <p>This is alert content.</p>
+    </Alert>
+  </Story>
+</Preview>
+
+#### Error
+
+<Preview>
+  <Story name="error variant">
+    <Alert heading="Error Alert" variant="error">
+      <p>This is alert content.</p>
+    </Alert>
+  </Story>
+</Preview>
+
+#### Info
+
+<Preview>
+  <Story name="info variant">
+    <Alert heading="Info Alert" variant="info">
+      <p>This is alert content.</p>
+    </Alert>
+  </Story>
+</Preview>
