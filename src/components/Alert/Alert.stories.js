@@ -18,3 +18,8 @@ storiesOf('Alert', module)
       <p>This is alert content.</p>
     </Alert>
   ))
+  .add('info variant', () => (
+    <Alert heading="Info Alert" variant="info">
+      <p>This is alert content.</p>
+    </Alert>
+  ))

@@ -15,11 +15,15 @@ export default function Card(props) {
       `};
   `
 
-  return <StyledDiv {...props}>{children}</StyledDiv>
+  return (
+    <StyledDiv {...props}>
+      <div>{children}</div>
+    </StyledDiv>
+  )
 }
 
 Card.propTypes = {
-  children: PropTypes.node.isRequired,
+  children: PropTypes.element.isRequired,
   hasShadow: PropTypes.bool
 }
 
