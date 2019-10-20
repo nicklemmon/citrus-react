@@ -1,8 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
+import { space } from 'styled-system'
 import { alertCircle } from 'react-icons-kit/feather/alertCircle'
 import { checkCircle } from 'react-icons-kit/feather/checkCircle'
+import { info } from 'react-icons-kit/feather/info'
 import Icon from '../Icon'
 import Heading from '../Heading'
 
@@ -19,15 +21,16 @@ export default function Alert(props) {
         return css`
           border-color: ${props => props.theme.colors.error};
         `
+      case 'info':
+        return css`
+          border-color: ${props => props.theme.colors.info};
+        `
       default:
-        console.error(
-          `Supplied value for variant prop ${variant} not a valid value`
-        )
+        console.error(`Supplied value for variant prop ${variant} not a valid value`)
     }
   }
 
   const getVariantIcon = variant => {
-    console.log('variant', variant)
     switch (variant) {
       case 'success':
         return {
@@ -39,10 +42,13 @@ export default function Alert(props) {
           icon: alertCircle,
           label: 'Error!'
         }
+      case 'info':
+        return {
+          icon: info,
+          label: 'Heads up:'
+        }
       default:
-        console.error(
-          `Supplied value for variant prop ${variant} not a valid value`
-        )
+        console.error(`Supplied value for variant prop ${variant} not a valid value`)
     }
   }
 
@@ -53,6 +59,7 @@ export default function Alert(props) {
     border-radius: ${props => props.theme.radii[0]};
     border: ${props => props.theme.space[1]} solid;
     ${getVariantStyles(variant)}
+    ${space}
 
     p {
       margin: 0;
@@ -72,7 +79,7 @@ export default function Alert(props) {
   `
 
   return (
-    <Alert role="alert">
+    <Alert role="alert" {...props}>
       <AlertPreContent>
         <AlertIconWrapper>
           <Icon
@@ -85,7 +92,7 @@ export default function Alert(props) {
       </AlertPreContent>
 
       <AlertContent>
-        <Heading mb={3} level={3}>
+        <Heading mb={3} level={3} fontSize={1}>
           {heading}
         </Heading>
 
@@ -96,6 +103,7 @@ export default function Alert(props) {
 }
 
 Alert.propTypes = {
+  ...space.propTypes,
   heading: PropTypes.string.isRequired,
   variant: PropTypes.string.isRequired,
   children: PropTypes.node.isRequired

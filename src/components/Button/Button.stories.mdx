@@ -1,0 +1,95 @@
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks'
+import Button from './Button'
+import ButtonWrapper from '../ButtonWrapper/ButtonWrapper'
+
+<Meta title="Button" component={Button} />
+
+# Button
+
+## Used for Attention-Grabbing Interactions
+
+Use buttons for attracting the user's attention.
+
+```jsx
+import { Button } from '@citrus-react'
+
+const MyComponent = () => <Button>Click Me</Button>
+```
+
+<Props of={Button} />
+
+### Variants
+
+#### Primary Variant
+
+Used as the primary action on a page or within a form.
+
+<Preview>
+  <Story name="primary variant">
+    <Button variant="primary">Continue</Button>
+  </Story>
+</Preview>
+
+#### Secondary Variant
+
+Used for secondary actions, i.e., going backwards in a form or flow.
+
+<Preview>
+  <Story name="secondary variant">
+    <Button variant="secondary">Back</Button>
+  </Story>
+</Preview>
+
+#### Tertiary Variant
+
+Used for tertiary actions, i.e., canceling a flow altogether.
+
+<Preview>
+  <Story name="tertiary variant">
+    <Button variant="tertiary">Cancel</Button>
+  </Story>
+</Preview>
+
+#### All Variants in a ButtonWrapper
+
+<Preview>
+  <Story name="all variants in a ButtonWrapper">
+    <ButtonWrapper>
+      <Button variant="primary">Continue</Button>
+      <Button variant="secondary">Back</Button>
+      <Button variant="tertiary">Cancel</Button>
+    </ButtonWrapper>
+  </Story>
+</Preview>
+
+#### Full Width
+
+<Preview>
+  <Story name="full width">
+    <Button isFullWidth>Click Me</Button>
+  </Story>
+</Preview>
+
+#### Disabled
+
+<Preview>
+  <Story name="disabled">
+    <Button isDisabled>Click Me</Button>
+  </Story>
+</Preview>
+
+#### Small
+
+<Preview>
+  <Story name="small">
+    <Button isSmall>Click Me</Button>
+  </Story>
+</Preview>
+
+#### Loading
+
+<Preview>
+  <Story name="loading">
+    <Button isLoading>Click Me</Button>
+  </Story>
+</Preview>

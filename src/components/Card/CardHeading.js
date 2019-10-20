@@ -7,7 +7,6 @@ export default function CardHeading(props) {
   const { children, level } = props
   const HeadingWrapper = styled.span`
     > * {
-      font-size: ${props => props.theme.fontSizes[1]};
       font-weight: 500;
       color: ${props => props.theme.colors.darkGray};
       letter-spacing: 0.02rem;
@@ -16,7 +15,9 @@ export default function CardHeading(props) {
 
   return (
     <HeadingWrapper>
-      <Heading level={level}>{children}</Heading>
+      <Heading level={level} fontSize={1}>
+        {children}
+      </Heading>
     </HeadingWrapper>
   )
 }

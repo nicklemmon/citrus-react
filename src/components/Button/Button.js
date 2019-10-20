@@ -113,10 +113,11 @@ export default function Button(props) {
 }
 
 Button.propTypes = {
-  ...space.propTypes,
-  variant: PropTypes.string.isRequired
-}
-
-Button.defaultProps = {
-  variant: 'primary'
+  variant: PropTypes.string.isRequired,
+  children: PropTypes.element.isRequired,
+  isFullWidth: PropTypes.bool,
+  isSmall: PropTypes.bool,
+  isDisabled: PropTypes.bool,
+  isLoading: PropTypes.bool,
+  ...space.propTypes
 }
