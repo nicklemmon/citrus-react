@@ -1,4 +1,4 @@
-import { Meta, Story, Preview } from '@storybook/addon-docs/blocks'
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks'
 import Button from './Button'
 import ButtonWrapper from '../ButtonWrapper/ButtonWrapper'
 
@@ -10,11 +10,13 @@ import ButtonWrapper from '../ButtonWrapper/ButtonWrapper'
 
 Use buttons for attracting the user's attention.
 
-<Preview>
-  <Story name="with required props only">
-    <Button>Click Me</Button>
-  </Story>
-</Preview>
+```jsx
+import { Button } from '@citrus-react'
+
+const MyComponent = () => <Button>Click Me</Button>
+```
+
+<Props of={Button} />
 
 ### Variants
 
