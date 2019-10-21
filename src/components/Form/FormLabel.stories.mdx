@@ -1,0 +1,27 @@
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks'
+import FormLabel from './FormLabel'
+
+<Meta title="Forms|FormLabel" component={FormLabel} />
+
+# FormLabel
+
+## Used for labelling form controls
+
+Used for semantically associating form controls with labels
+
+<Preview>
+  <Story name="with required props">
+    <FormLabel htmlFor="my-control">My Control</FormLabel>
+  </Story>
+</Preview>
+
+```jsx
+import { FormLabel } from '@citrus-react'
+
+const MyComponent = () => (
+  <form>
+    <FormLabel htmlFor="my-control">My Control</FormLabel>
+    <input type="text" id="my-control" />
+  </form>
+)
+```

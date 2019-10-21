@@ -1,0 +1,33 @@
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks'
+import FormGroup from './FormGroup'
+import FormLabel from './FormLabel'
+import FormControl from './FormControl'
+
+<Meta title="Forms|FormGroup" component={FormGroup} />
+
+# FormGroup
+
+## Used for grouping smaller form components in to a functional whole
+
+Use `<FormGroup/>` to wrap smaller form components for things like error handling and descriptions.
+
+```jsx
+import { FormGroup, FormLabel, FormControl } from '@citrus-react'
+
+const MyComponent = () => (
+  <FormGroup id="first-name" variant="text" description="This is a description">
+    <FormLabel>First Name</FormLabel>
+
+    <FormControl />
+  </FormGroup>
+)
+```
+
+<Preview>
+  <Story name="with lotsa stuff">
+    <FormGroup id="first-name" variant="text" description="This is a description">
+      <FormLabel>First Name</FormLabel>
+      <FormControl />
+    </FormGroup>
+  </Story>
+</Preview>
