@@ -1,8 +1,11 @@
 import React, { useState, isValidElement, cloneElement } from 'react'
+import { chevronDown } from 'react-icons-kit/feather/chevronDown'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { space } from 'styled-system'
 import { FormGroupContext } from './FormGroupContext'
+import FormGroupCap from './FormGroupCap'
+import Icon from '../Icon'
 
 export default function FormGroup(props) {
   const { children, initialAlerts, id, variant, description } = props
@@ -27,11 +30,14 @@ export default function FormGroup(props) {
       box-shadow: 0 0 0 3px ${props => props.theme.colors.blue}66;
     }
   `
+  const StyledControlWrapper = styled.div`
+    display: flex;
+  `
   const StyledDescription = styled.div`
     font-size: ${props => props.theme.fontSizes[0]};
     color: ${props => props.theme.colors.darkGray};
     padding: ${props => props.theme.space[2]};
-    background-color: ${props => props.theme.colors.lighterGray};
+    background-color: ${props => props.theme.colors.offWhite};
     border-top: 2px solid ${props => props.theme.colors.lightGray};
     border-top: 0;
   `
@@ -46,9 +52,11 @@ export default function FormGroup(props) {
 
   const renderChildren = () => {
     return React.Children.map(children, (child, index) => {
-      if (!isValidElement(child) || child.type.name === 'FormLabel') return
+      const childName = child.type.name
 
-      if (child.type.name === 'FormControl') return child
+      if (!isValidElement(child) || childName === 'FormLabel') return
+
+      if (childName === 'FormControl' || childName === 'FormGroupCap') return child
     })
   }
 
@@ -58,7 +66,15 @@ export default function FormGroup(props) {
         {renderLabel()}
 
         <StyledSubwrapper>
-          {renderChildren()}
+          <StyledControlWrapper>
+            {renderChildren()}
+
+            {variant === 'select' && (
+              <FormGroupCap>
+                <Icon icon={chevronDown} />
+              </FormGroupCap>
+            )}
+          </StyledControlWrapper>
 
           {description && (
             <StyledDescription id={`${id}-description`}>{description}</StyledDescription>

@@ -6,17 +6,8 @@ import propTypes from '@styled-system/prop-types'
 import { FormGroupContext } from './FormGroupContext'
 
 function FormControl(props) {
-  const {
-    children,
-    variant,
-    name,
-    isDisabled,
-    isRequired,
-    value,
-    onChange,
-    ariaDescribedBy
-  } = props
-  const { id, alerts, setAlerts, description } = useContext(FormGroupContext)
+  const { children, name, isDisabled, isRequired, value, onChange, ariaDescribedBy } = props
+  const { id, variant, alerts, setAlerts, description } = useContext(FormGroupContext)
   const baseStyles = css`
     appearance: none;
     -moz-appearance: none;
@@ -31,6 +22,7 @@ function FormControl(props) {
     ${baseStyles}
   `
   const StyledSelect = styled.select`
+    background: 0;
     ${baseStyles}
   `
 

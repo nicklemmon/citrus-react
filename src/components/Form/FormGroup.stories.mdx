@@ -1,7 +1,10 @@
 import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks'
+import { dollarSign } from 'react-icons-kit/feather/dollarSign'
 import FormGroup from './FormGroup'
+import FormGroupCap from './FormGroupCap'
 import FormLabel from './FormLabel'
 import FormControl from './FormControl'
+import Icon from '../Icon'
 
 <Meta title="Forms|FormGroup" component={FormGroup} />
 
@@ -26,8 +29,30 @@ const MyComponent = () => (
 <Preview>
   <Story name="with lotsa stuff">
     <FormGroup id="first-name" variant="text" description="This is a description">
+      <FormGroupCap>
+        <Icon icon={dollarSign} />
+      </FormGroupCap>
       <FormLabel>First Name</FormLabel>
       <FormControl />
+    </FormGroup>
+  </Story>
+</Preview>
+
+## Variants
+
+### Text
+
+### Select
+
+<Preview>
+  <Story name="select variant">
+    <FormGroup id="select-variant" variant="select">
+      <FormLabel>Favorite Foods</FormLabel>
+      <FormControl>
+        <option>Pizza</option>
+        <option>Tacos</option>
+        <option>Avocado</option>
+      </FormControl>
     </FormGroup>
   </Story>
 </Preview>
