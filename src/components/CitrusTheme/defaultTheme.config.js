@@ -7,6 +7,7 @@ export default {
     darkerGray: '#292929',
     gray: '#8f8f8f',
     lightGray: '#e3e3e3',
+    lighterGray: '#f2f2f2',
     error: '#f52351',
     success: '#11e234',
     attention: '#f5bd23',

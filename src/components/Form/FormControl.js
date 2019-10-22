@@ -23,26 +23,9 @@ function FormControl(props) {
     width: 100%;
     padding: ${props => props.theme.space[2]};
     font-size: ${props => props.theme.fontSizes[1]};
-    border-radius: ${props => props.theme.radii[0]};
-    ${description &&
-      css`
-        border-radius: ${props => props.theme.radii[0]} ${props => props.theme.radii[0]} 0 0;
-      `}
+    border: 0;
     outline: none;
-    border: 2px solid ${props => props.theme.colors.lightGray};
-    transition: border-color ${props => props.theme.animation.timing}
-        ${props => props.theme.animation.easing},
-      box-shadow ${props => props.theme.animation.timing} ${props => props.theme.animation.easing};
     ${space}
-
-    &:hover,
-    &:focus {
-      border-color: ${props => props.theme.colors.darkGray};
-    }
-
-    &:focus {
-      box-shadow: 0 0 0 3px ${props => props.theme.colors.blue}66;
-    }
   `
   const StyledInput = styled.input`
     ${baseStyles}
