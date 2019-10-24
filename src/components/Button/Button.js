@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import { space, color } from 'styled-system'
+import propTypes from '@styled-system/prop-types'
 
 export default function Button(props) {
   const { variant, to, isFullWidth, isSmall, isDisabled, children, isLoading } = props
@@ -118,6 +119,7 @@ Button.propTypes = {
   isFullWidth: PropTypes.bool,
   isSmall: PropTypes.bool,
   isDisabled: PropTypes.bool,
-  isLoading: PropTypes.bool,
-  ...space.propTypes
+  isLoading: PropTypes.bool
+  //...propTypes.space,
+  //...propTypes.color
 }

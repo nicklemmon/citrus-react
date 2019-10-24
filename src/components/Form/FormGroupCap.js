@@ -17,7 +17,6 @@ export default function FormGroupCap(props) {
 
   const renderChildren = () => {
     return React.Children.map(children, (child, index) => {
-      console.log('child!', child)
       if (!isValidElement(child)) return
 
       if (child.type.name === 'Icon') return cloneElement(child, { size: 13 })

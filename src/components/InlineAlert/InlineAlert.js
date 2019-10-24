@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import { space } from 'styled-system'
 import { alertCircle } from 'react-icons-kit/feather/alertCircle'
 import { checkCircle } from 'react-icons-kit/feather/checkCircle'
 import { info } from 'react-icons-kit/feather/info'
@@ -8,7 +9,19 @@ import Icon from '../Icon'
 
 export default function InlineAlert(props) {
   const { children, variant } = props
-  const StyledSpan = styled.span``
+  const StyledDiv = styled.div`
+    display: flex;
+    align-items: center;
+    line-height: 1.5;
+    font-size: ${props => props.theme.fontSizes[0]};
+    color: ${props => props.theme.colors[variant]};
+    ${space}
+  `
+  const StyledIcon = styled(Icon)`
+    display: inline-block;
+    margin-right: ${props => props.theme.space[1]};
+    transform: translateY(-1px);
+  `
 
   const getVariantIcon = variant => {
     switch (variant) {
@@ -33,15 +46,19 @@ export default function InlineAlert(props) {
   }
 
   return (
-    <StyledSpan>
-      <Icon icon={getVariantIcon(variant).icon} label={getVariantIcon(variant).label} size={16} />
+    <StyledDiv {...props}>
+      <StyledIcon
+        icon={getVariantIcon(variant).icon}
+        label={getVariantIcon(variant).label}
+        size={15}
+      />
 
       {children}
-    </StyledSpan>
+    </StyledDiv>
   )
 }
 
 InlineAlert.propTypes = {
-  children: PropTypes.node.isRequired,
+  children: PropTypes.string.isRequired,
   variant: PropTypes.string.isRequired
 }
