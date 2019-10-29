@@ -67,9 +67,13 @@ export default function FormGroup(props) {
 
   const renderLabel = () => {
     return React.Children.map(children, (child, index) => {
+      const childName = child.type.name
+
       if (!isValidElement(child)) return
 
-      if (child.type.name === 'FormLabel') return child
+      if (childName === 'FormLabel' || childName === 'ScreenReaderOnly') {
+        return child
+      }
     })
   }
 
