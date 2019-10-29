@@ -22,6 +22,13 @@ export default function FormGroup(props) {
 
   const StyledWrapper = styled.div`
     ${space}
+
+    label {
+      color: ${hasError() &&
+        css`
+          ${props => props.theme.colors.error}
+        `};
+    }
   `
   const StyledSubwrapper = styled.div`
     overflow: hidden;
@@ -90,7 +97,7 @@ export default function FormGroup(props) {
   }
 
   const renderAlerts = () => {
-    React.Children.map(children, (child, index) => {
+    return React.Children.map(children, (child, index) => {
       if (!isValidElement(child)) return
 
       if (child.type.name === 'InlineAlert') {
