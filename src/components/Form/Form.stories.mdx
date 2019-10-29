@@ -1,0 +1,28 @@
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks'
+import Form from './Form'
+
+<Meta title="Forms|Form" component={Form} />
+
+# Form
+
+## Used for wrapping form elements
+
+Use the `<Form/>` component to wrap form elements and handle form submission.
+
+```jsx
+import { Form } from '@citrus-react'
+
+const MyComponent = () => {
+  const submitData = () => {
+    console.log('submit form!')
+  }
+
+  return (
+    <Form onSubmit={submitData}>
+      <input type="submit" />
+    </Form>
+  )
+}
+```
+
+<Props of={Form} />

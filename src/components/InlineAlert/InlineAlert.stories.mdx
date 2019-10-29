@@ -1,0 +1,42 @@
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks'
+import InlineAlert from './InlineAlert'
+
+<Meta title="Alerts|InlineAlert" component={InlineAlert} />
+
+# InlineAlert
+
+## Used for user feedback immediately adjacent to other components
+
+```jsx
+import { InlineAlert } from '@citrus-react'
+
+const MyComponent = () => <InlineAlert variant="error">Error!</InlineAlert>
+```
+
+<Props of={InlineAlert} />
+
+### Variants
+
+#### Success
+
+<Preview>
+  <Story name="success variant">
+    <InlineAlert variant="success">Success inline alert</InlineAlert>
+  </Story>
+</Preview>
+
+#### Error
+
+<Preview>
+  <Story name="error variant">
+    <InlineAlert variant="error">Error inline alert</InlineAlert>
+  </Story>
+</Preview>
+
+#### Info
+
+<Preview>
+  <Story name="info variant">
+    <InlineAlert variant="info">Info inline alert</InlineAlert>
+  </Story>
+</Preview>

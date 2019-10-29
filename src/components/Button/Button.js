@@ -114,10 +114,9 @@ export default function Button(props) {
 
 Button.propTypes = {
   variant: PropTypes.string.isRequired,
-  children: PropTypes.element.isRequired,
+  children: PropTypes.any.isRequired,
   isFullWidth: PropTypes.bool,
   isSmall: PropTypes.bool,
   isDisabled: PropTypes.bool,
-  isLoading: PropTypes.bool,
-  ...space.propTypes
+  isLoading: PropTypes.bool
 }

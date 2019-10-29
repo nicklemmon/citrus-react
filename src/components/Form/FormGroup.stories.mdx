@@ -1,0 +1,167 @@
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks'
+import { dollarSign } from 'react-icons-kit/feather/dollarSign'
+import { mail } from 'react-icons-kit/feather/mail'
+import { phone } from 'react-icons-kit/feather/phone'
+import { lock } from 'react-icons-kit/feather/lock'
+import { search } from 'react-icons-kit/feather/search'
+import FormGroup from './FormGroup'
+import FormGroupCap from './FormGroupCap'
+import FormLabel from './FormLabel'
+import FormControl from './FormControl'
+import Icon from '../Icon'
+import InlineAlert from '../InlineAlert'
+import Button from '../Button'
+import ScreenReaderOnly from '../ScreenReaderOnly'
+
+<Meta title="Forms|FormGroup" component={FormGroup} />
+
+# FormGroup
+
+## Used for grouping smaller form components in to a functional whole
+
+Use `<FormGroup/>` to wrap smaller form components for things like error handling and descriptions.
+
+```jsx
+import { FormGroup, FormLabel, FormControl } from '@citrus-react'
+
+const MyComponent = () => (
+  <FormGroup id="first-name" variant="text" description="This is a description">
+    <FormLabel>First Name</FormLabel>
+
+    <FormControl />
+  </FormGroup>
+)
+```
+
+<Preview>
+  <Story name="with lotsa stuff">
+    <FormGroup id="first-name" variant="text" description="This is a description">
+      <FormLabel>First Name</FormLabel>
+      <FormGroupCap>
+        <Icon icon={dollarSign} />
+      </FormGroupCap>
+      <FormControl />
+      <FormGroupCap>
+        <Icon icon={dollarSign} />
+      </FormGroupCap>
+      <InlineAlert variant="error">This field is required.</InlineAlert>
+    </FormGroup>
+  </Story>
+</Preview>
+
+## Variants
+
+### Text
+
+<Preview>
+  <Story name="text variant">
+    <FormGroup id="select-variant" variant="text">
+      <FormLabel>First Name</FormLabel>
+      <FormControl />
+    </FormGroup>
+  </Story>
+</Preview>
+
+### Select
+
+<Preview>
+  <Story name="select variant">
+    <FormGroup id="select-variant" variant="select">
+      <FormLabel>Favorite Foods</FormLabel>
+      <FormControl>
+        <option>Pizza</option>
+        <option>Tacos</option>
+        <option>Avocado</option>
+      </FormControl>
+    </FormGroup>
+  </Story>
+</Preview>
+
+### Email
+
+<Preview>
+  <Story name="email variant">
+    <FormGroup id="email-variant" variant="email">
+      <FormLabel>Email Address</FormLabel>
+      <FormGroupCap>
+        <Icon icon={mail} />
+      </FormGroupCap>
+      <FormControl />
+    </FormGroup>
+  </Story>
+</Preview>
+
+### Phone
+
+<Preview>
+  <Story name="phone variant">
+    <FormGroup id="phone-variant" variant="tel">
+      <FormLabel>Phone Number</FormLabel>
+      <FormGroupCap>
+        <Icon icon={phone} />
+      </FormGroupCap>
+      <FormControl />
+    </FormGroup>
+  </Story>
+</Preview>
+
+### Password
+
+<Preview>
+  <Story name="password variant">
+    <FormGroup id="password-variant" variant="password">
+      <FormLabel>Password</FormLabel>
+      <FormGroupCap>
+        <Icon icon={lock} />
+      </FormGroupCap>
+      <FormControl />
+    </FormGroup>
+  </Story>
+</Preview>
+
+## States
+
+### Error State
+
+<Preview>
+  <Story name="with an error">
+    <FormGroup id="with-an-error" variant="text">
+      <FormLabel>Error Message</FormLabel>
+      <FormControl />
+      <InlineAlert variant="error">This is an error message</InlineAlert>
+    </FormGroup>
+  </Story>
+</Preview>
+
+### Success State
+
+## Other
+
+### With Button
+
+<Preview>
+  <Story name="with button">
+    <FormGroup id="with-button" variant="text">
+      <FormLabel>Search</FormLabel>
+      <FormControl />
+      <Button variant="tertiary">Go</Button>
+    </FormGroup>
+  </Story>
+</Preview>
+
+### With a Visually Hidden Label
+
+<Preview>
+  <Story name="visually hidden label">
+    <FormGroup id="visually-hidden-label" variant="text">
+      <ScreenReaderOnly>
+        <FormLabel>Search</FormLabel>
+      </ScreenReaderOnly>
+      <FormGroupCap>
+        <Icon icon={search} />
+      </FormGroupCap>
+      <FormControl />
+      <Button variant="tertiary">Go</Button>
+    </FormGroup>
+  </Story>
+</Preview>
