@@ -12,7 +12,7 @@ function FormControl(props) {
     appearance: none;
     -moz-appearance: none;
     width: 100%;
-    padding: ${props => props.theme.space[2]};
+    padding: 0.66rem ${props => props.theme.space[2]};
     font-size: ${props => props.theme.fontSizes[1]};
     border: 0;
     outline: none;

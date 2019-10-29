@@ -1,15 +1,25 @@
-import React, { useState, isValidElement, cloneElement } from 'react'
+import React, { isValidElement, cloneElement } from 'react'
 import { chevronDown } from 'react-icons-kit/feather/chevronDown'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { space } from 'styled-system'
 import { FormGroupContext } from './FormGroupContext'
 import FormGroupCap from './FormGroupCap'
 import Icon from '../Icon'
 
 export default function FormGroup(props) {
-  const { children, initialAlerts, id, variant, description } = props
-  const [alerts, setAlerts] = useState(initialAlerts)
+  const { children, id, variant, description } = props
+
+  const hasError = () => {
+    let hasError = false
+
+    React.Children.map(children, (child, index) => {
+      if (child.props.variant === 'error') hasError = true
+    })
+
+    return hasError
+  }
+
   const StyledWrapper = styled.div`
     ${space}
   `
@@ -20,9 +30,17 @@ export default function FormGroup(props) {
     transition: border-color ${props => props.theme.animation.timing}
         ${props => props.theme.animation.easing},
       box-shadow ${props => props.theme.animation.timing} ${props => props.theme.animation.easing};
+    ${hasError() &&
+      css`
+        border-color: ${props => props.theme.colors.error};
+      `};
 
     &:hover {
       border-color: ${props => props.theme.colors.gray};
+      ${hasError() &&
+        css`
+          border-color: ${props => props.theme.colors.error};
+        `};
     }
 
     &:focus-within {
@@ -32,6 +50,11 @@ export default function FormGroup(props) {
   `
   const StyledControlWrapper = styled.div`
     display: flex;
+
+    button,
+    a {
+      border-radius: 0;
+    }
   `
   const StyledDescription = styled.div`
     font-size: ${props => props.theme.fontSizes[0]};
@@ -56,19 +79,36 @@ export default function FormGroup(props) {
 
       if (!isValidElement(child) || childName === 'FormLabel') return
 
-      if (childName === 'FormControl' || childName === 'FormGroupCap') return child
+      if (childName === 'FormControl' || childName === 'FormGroupCap' || childName === 'Button') {
+        return child
+      }
+    })
+  }
+
+  const renderAlerts = () => {
+    React.Children.map(children, (child, index) => {
+      if (!isValidElement(child)) return
+
+      if (child.type.name === 'InlineAlert') {
+        const alertId = `${id}-inline-alert-${index}`
+
+        return cloneElement(child, {
+          id: alertId
+        })
+      }
     })
   }
 
   return (
     <StyledWrapper {...props}>
-      <FormGroupContext.Provider value={{ id, variant, alerts, setAlerts, description }}>
+      <FormGroupContext.Provider value={{ id, variant, description }}>
         {renderLabel()}
 
         <StyledSubwrapper>
           <StyledControlWrapper>
             {renderChildren()}
 
+            {/* <select> elements always have the chevron down as an end cap */}
             {variant === 'select' && (
               <FormGroupCap>
                 <Icon icon={chevronDown} />
@@ -80,6 +120,8 @@ export default function FormGroup(props) {
             <StyledDescription id={`${id}-description`}>{description}</StyledDescription>
           )}
         </StyledSubwrapper>
+
+        {renderAlerts()}
       </FormGroupContext.Provider>
     </StyledWrapper>
   )

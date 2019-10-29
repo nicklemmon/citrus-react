@@ -12,7 +12,7 @@ export default function FormGroupCap(props) {
     justify-content: center;
     color: ${props => props.theme.colors.darkGray};
     background-color: ${props => props.theme.colors.white};
-    width: ${props => props.theme.space[4]};
+    width: ${props => props.theme.space[5]};
   `
 
   const renderChildren = () => {
