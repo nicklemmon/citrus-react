@@ -1,0 +1,78 @@
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks'
+import Loader from './Loader'
+
+<Meta title="Loader" component={Loader} />
+
+# Loader
+
+## Used to Represent a Loading State
+
+Use loaders to represent loading states, typically when requesting data that is not yet available.
+
+```jsx
+import { Loader } from '@citrus-react'
+
+const MyComponent = () => <Loader />
+```
+
+<Props of={Loader} />
+
+### Variants
+
+#### Primary Variant
+
+<Preview>
+  <Story name="primary variant">
+    <Loader variant="primary" />
+  </Story>
+</Preview>
+
+#### Secondary Variant
+
+<Preview>
+  <Story name="secondary variant">
+    <Loader variant="secondary" />
+  </Story>
+</Preview>
+
+#### Tertiary Variant
+
+<Preview theme="dark">
+  <Story name="tertiary variant">
+    <Loader variant="tertiary" />
+  </Story>
+</Preview>
+
+#### With Description
+
+<Preview>
+  <Story name="with a description">
+    <Loader size="sm" description="Loading some stuff" />
+  </Story>
+</Preview>
+
+### Sizes
+
+#### Small
+
+<Preview>
+  <Story name="small size">
+    <Loader size="sm" />
+  </Story>
+</Preview>
+
+#### Base
+
+<Preview>
+  <Story name="base size">
+    <Loader size="base" />
+  </Story>
+</Preview>
+
+#### Large
+
+<Preview>
+  <Story name="large size">
+    <Loader size="lg" />
+  </Story>
+</Preview>

@@ -1,8 +1,8 @@
 export default {
   space: ['0', '3px', '6px', '12px', '24px', '32px', '64px', '128px'],
   colors: {
-    white: '#FFF',
-    offWhite: '#ECF0F1',
+    white: '#ffffff',
+    offWhite: '#eCf0f1',
     darkGray: '#4d4d4d',
     darkerGray: '#292929',
     gray: '#8f8f8f',
