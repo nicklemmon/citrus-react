@@ -11,7 +11,7 @@ export default {
     error: '#ea0b3b',
     success: '#09871e',
     attention: '#f5bd23',
-    info: '#237e',
+    info: '#00237e',
     blue: '#3498DB',
     darkBlue: '#2980B9',
     red: '#E74C3C',

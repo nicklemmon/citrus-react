@@ -16,14 +16,17 @@ export default function Alert(props) {
       case 'success':
         return css`
           border-color: ${props => props.theme.colors.success};
+          box-shadow: inset 0 0 0 3px ${props => props.theme.colors.success}33;
         `
       case 'error':
         return css`
           border-color: ${props => props.theme.colors.error};
+          box-shadow: inset 0 0 0 3px ${props => props.theme.colors.error}33;
         `
       case 'info':
         return css`
           border-color: ${props => props.theme.colors.info};
+          box-shadow: inset 0 0 0 3px ${props => props.theme.colors.info}33;
         `
       default:
         console.error(`Supplied value for variant prop ${variant} not a valid value`)
