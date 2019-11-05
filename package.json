@@ -49,5 +49,17 @@
     "babel-preset-react-app": "^9.0.2",
     "styled-components": "^4.3.2",
     "styled-system": "^5.1.2"
-  }
+  },
+  "description": "Another React component library, but with a11y in mind",
+  "main": "dist/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nicklemmon/citrus-react.git"
+  },
+  "author": "Nick Lemmon <nick.lemmon@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nicklemmon/citrus-react/issues"
+  },
+  "homepage": "https://github.com/nicklemmon/citrus-react#readme"
 }
