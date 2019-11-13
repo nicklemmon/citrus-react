@@ -3,11 +3,9 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { space, color } from 'styled-system'
 import propTypes from '@styled-system/prop-types'
-import { FormGroupContext } from './FormGroupContext'
 
 export default function FormLabel(props) {
-  const { children, variant } = props
-  const { id, alerts } = useContext(FormGroupContext)
+  const { children, variant, id, alerts } = props
   const StyledLabel = styled.label`
     display: block;
     font-weight: 700;

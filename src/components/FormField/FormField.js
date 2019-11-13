@@ -1,13 +1,22 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import { space } from 'styled-system'
 import propTypes from '@styled-system/prop-types'
-import { FormGroupContext } from './FormGroupContext'
 
-function FormControl(props) {
-  const { children, name, isDisabled, isRequired, value, onChange, ariaDescribedBy } = props
-  const { id, variant, alerts, setAlerts, description } = useContext(FormGroupContext)
+function FormField(props) {
+  const {
+    id,
+    variant,
+    description,
+    children,
+    name,
+    isDisabled,
+    isRequired,
+    value,
+    onChange,
+    ariaDescribedBy
+  } = props
   const baseStyles = css`
     appearance: none;
     -moz-appearance: none;
@@ -65,7 +74,7 @@ function FormControl(props) {
   )
 }
 
-FormControl.propTypes = {
+FormField.propTypes = {
   onChange: PropTypes.func.isRequired,
   children: PropTypes.element,
   name: PropTypes.string,
@@ -77,8 +86,8 @@ FormControl.propTypes = {
   ...propTypes.space
 }
 
-FormControl.defaultProps = {
+FormField.defaultProps = {
   isRequired: true
 }
 
-export default FormControl
+export default FormField

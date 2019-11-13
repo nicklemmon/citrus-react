@@ -78,8 +78,8 @@ export default function FormGroup(props) {
 
       if (!isValidElement(child)) return
 
-      if (childName === 'FormLabel' || childName === 'ScreenReaderOnly') {
-        return child
+      if (childName === 'FormLabel') {
+        return cloneElement(child, { id })
       }
     })
   }
@@ -88,10 +88,15 @@ export default function FormGroup(props) {
     return React.Children.map(children, (child, index) => {
       const childName = child.type.name
 
+      // Do not render `FormLabels` here!
       if (!isValidElement(child) || childName === 'FormLabel') return
 
-      if (childName === 'FormControl' || childName === 'FormGroupCap' || childName === 'Button') {
-        return child
+      if (childName === 'FormField' || childName === 'FormGroupCap' || childName === 'Button') {
+        return cloneElement(child, {
+          id,
+          variant,
+          description
+        })
       }
     })
   }
