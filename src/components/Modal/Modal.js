@@ -1,5 +1,6 @@
 import React, { isValidElement, cloneElement } from 'react'
 import PropTypes from 'prop-types'
+import FocusLock from 'react-focus-lock'
 import styled from 'styled-components'
 
 export default function Modal(props) {
@@ -35,7 +36,9 @@ export default function Modal(props) {
 
   return (
     <ModalWrapper role="dialog">
-      <ModalSubwrapper>{renderChildren()}</ModalSubwrapper>
+      <ModalSubwrapper>
+        <FocusLock>{renderChildren()}</FocusLock>
+      </ModalSubwrapper>
     </ModalWrapper>
   )
 }
