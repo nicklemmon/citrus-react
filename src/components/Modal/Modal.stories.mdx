@@ -1,0 +1,40 @@
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks'
+import { Modal, ModalHeader, ModalCloseBtn, ModalHeading, ModalContent } from './index'
+import Heading from '../Heading'
+
+<Meta title="Overlays|Modal" component={Modal} />
+
+# Modal
+
+## Used for rendering overlays
+
+```jsx
+import { Modal, ModalHeader, ModalContent } from '@citrus/react'
+
+const MyComponent = () => (
+  <Modal>
+    <ModalHeader>
+      <ModalHeading>This is a modal</ModalHeading>
+    </ModalHeader>
+    <ModalContent>
+      <p>The content goes here.</p>
+    </ModalContent>
+  </Modal>
+)
+```
+
+### Variants
+
+#### Default
+
+<Preview>
+  <Story name="default">
+    <Modal>
+      <ModalHeader>
+        <ModalCloseBtn />
+        <ModalHeading>This is a modal</ModalHeading>
+      </ModalHeader>
+      <ModalContent>Hello world</ModalContent>
+    </Modal>
+  </Story>
+</Preview>

@@ -4,7 +4,7 @@ import styled, { css } from 'styled-components'
 import { space, typography } from 'styled-system'
 
 export default function Heading(props) {
-  const { level, children, alignment } = props
+  const { level, children, alignment, className } = props
   const StyledDiv = styled.div`
     margin: 0;
     font-weight: 700;
@@ -38,7 +38,13 @@ export default function Heading(props) {
   `
 
   return (
-    <StyledDiv role="heading" aria-level={level} style={{ textAlign: alignment }} {...props}>
+    <StyledDiv
+      role="heading"
+      aria-level={level}
+      style={{ textAlign: alignment }}
+      className={className}
+      {...props}
+    >
       {children}
     </StyledDiv>
   )
