@@ -95,7 +95,7 @@ export default function Alert(props) {
       </AlertPreContent>
 
       <AlertContent>
-        <Heading mb={3} level={3} fontSize={1}>
+        <Heading mb={2} level={3} fontSize={1}>
           {heading}
         </Heading>
 

@@ -43,6 +43,7 @@ export default function Heading(props) {
       aria-level={level}
       style={{ textAlign: alignment }}
       className={className}
+      {...props}
     >
       {children}
     </StyledDiv>
