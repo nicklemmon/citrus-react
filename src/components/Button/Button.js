@@ -69,7 +69,7 @@ const StyledButton = styled.button`
             ${props => props.theme.space[1]}
           `
         : css`
-            ${props => `${props.theme.space[2]} ${props.theme.space[3]}`}
+            ${props => `${props.theme.space[2]} ${props.theme.space[2]}`}
           `};
     background: none;
     border: 1px solid #000;
