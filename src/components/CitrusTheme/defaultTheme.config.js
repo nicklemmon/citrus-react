@@ -29,7 +29,7 @@ export default {
     primary: `'Rubik', sans-serif`,
     secondary: `serif`
   },
-  fontSizes: ['13px', '15px', '19px', '23px', '27px', '35px'],
+  fontSizes: ['13px', '15px', '19px', '23px', '27px', '35px', '51px'],
   animation: {
     timing: '0.25s',
     easing: 'ease-in-out'
