@@ -1,4 +1,4 @@
-import React, { Component, useState } from 'react'
+import React, { useState } from 'react'
 import CitrusThemeProvider from './components/CitrusTheme/CitrusThemeProvider'
 import './App.css'
 import Collapsible from './components/Collapsible'
