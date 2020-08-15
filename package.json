@@ -34,6 +34,11 @@
       "last 1 safari version"
     ]
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
+  },
   "devDependencies": {
     "@storybook/addon-actions": "^5.2.1",
     "@storybook/addon-docs": "^5.2.4",
@@ -42,6 +47,8 @@
     "@storybook/react": "^5.2.1",
     "@styled-system/prop-types": "^5.1.2",
     "babel-preset-react-app": "^9.0.2",
+    "husky": "^4.2.5",
+    "pretty-quick": "^2.0.1",
     "styled-components": "^4.3.2",
     "styled-system": "^5.1.2"
   }
