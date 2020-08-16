@@ -5,7 +5,7 @@ import styled from 'styled-components'
 import { space, color } from 'styled-system'
 
 export default function Icon(props) {
-  const { icon, size, label } = props
+  const { className, icon, size, label } = props
   const StyledDiv = styled.div`
     ${color}
     ${space}
@@ -13,10 +13,10 @@ export default function Icon(props) {
 
   return (
     <StyledDiv
+      className={className}
       role={label ? 'img' : null}
       aria-label={label}
       aria-hidden={label ? 'false' : 'true'}
-      {...props}
     >
       <ReactIconsKitIcon size={size} icon={icon} />
     </StyledDiv>
@@ -26,5 +26,6 @@ export default function Icon(props) {
 Icon.propTypes = {
   icon: PropTypes.object.isRequired,
   label: PropTypes.string,
-  size: PropTypes.number
+  size: PropTypes.number,
+  className: PropTypes.string
 }

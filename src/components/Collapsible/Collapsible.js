@@ -1,6 +1,8 @@
 import React, { cloneElement, isValidElement } from 'react'
+import { chevronRight } from 'react-icons-kit/feather/chevronRight'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import { Icon } from 'src/components'
 import { buttonReset, focusStyles } from 'src/styles'
 
 const StyledCollapsible = styled.div`
@@ -11,6 +13,9 @@ const StyledCollapsible = styled.div`
 const StyledButton = styled.button`
   ${buttonReset}
   ${focusStyles}
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   cursor: pointer;
   width: 100%;
   text-align: left;
@@ -25,6 +30,10 @@ const StyledButton = styled.button`
   }
 `
 
+const StyledChevron = styled(Icon)`
+  transform: ${props => (props.isRotated ? 'rotate(90deg)' : 'unset')};
+`
+
 const StyledContent = styled.div`
   padding: ${props => props.theme.space[3]};
   display: ${props => (props.isExpanded ? 'block' : 'none')};
@@ -35,8 +44,6 @@ function Collapsible({ children, isExpanded = false }) {
   const renderChildren = () =>
     React.Children.map(children, child => {
       if (!isValidElement(child)) return
-
-      console.log('child', child)
 
       if (
         child.type.displayName === 'Collapsible.Button' ||
@@ -61,6 +68,8 @@ function Button({ isExpanded = false, onClick, children }) {
   return (
     <StyledButton onClick={onClick} aria-expanded={isExpanded ? 'true' : 'false'}>
       {children}
+
+      <StyledChevron isRotated={isExpanded} icon={chevronRight} size={15} />
     </StyledButton>
   )
 }
