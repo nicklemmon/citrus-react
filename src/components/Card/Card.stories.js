@@ -1,8 +1,7 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
 import Card from './Card'
-import ButtonWrapper from '../ButtonWrapper'
-import Button from '../Button'
+import { Button, ButtonWrapper } from 'src/components'
 
 storiesOf('Card', module).add('with required props only', () => {
   return (

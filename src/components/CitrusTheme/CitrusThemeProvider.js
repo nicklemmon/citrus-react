@@ -1,5 +1,6 @@
 import React from 'react'
 import { ThemeProvider, createGlobalStyle } from 'styled-components'
+import { Reset } from 'styled-reset'
 import defaultTheme from './defaultTheme.config.js'
 
 export default function CitrusThemeProvider(props) {
@@ -26,6 +27,8 @@ export default function CitrusThemeProvider(props) {
   return (
     <ThemeProvider theme={MergedThemeConfig}>
       <>
+        <Reset />
+
         <GlobalStyles />
 
         {children}

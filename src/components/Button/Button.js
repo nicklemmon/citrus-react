@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import { space, color } from 'styled-system'
+import { buttonReset, focusStyles } from 'src/styles'
 
 const primaryStyles = css`
   color: ${props => props.theme.colors.white};
@@ -53,6 +54,8 @@ const tertiaryStyles = css`
 const StyledButton = styled.button`
     ${space}
     ${color}
+    ${buttonReset}
+    ${focusStyles}
     font-size: ${props =>
       props.isSmall
         ? css`
@@ -61,7 +64,6 @@ const StyledButton = styled.button`
         : css`
             ${props => props.theme.fontSizes[1]}
           `};
-    font-weight: 500;
     letter-spacing: 0.0125rem;
     padding: ${props =>
       props.isSmall
@@ -71,9 +73,6 @@ const StyledButton = styled.button`
         : css`
             ${props => `${props.theme.space[2]} ${props.theme.space[2]}`}
           `};
-    background: none;
-    border: 1px solid #000;
-    outline: none;
     border-radius: ${props => props.theme.radii[0]};
     ${props => props.variant === 'primary' && primaryStyles}
     ${props => props.variant === 'secondary' && secondaryStyles}
@@ -94,13 +93,7 @@ const StyledButton = styled.button`
     transition: background-color ${props => props.theme.animation.timing} ${props =>
   props.theme.animation.easing}, border-color ${props => props.theme.animation.timing} ${props =>
   props.theme.animation.easing}, color ${props => props.theme.animation.timing} ${props =>
-  props.theme.animation.easing}, box-shadow ${props => props.theme.animation.timing} ${props =>
   props.theme.animation.easing};
-
-    &:focus {
-      outline: none;
-      box-shadow: 0 0 0 4px ${props => props.theme.colors.blue}66;
-    }
 
     @media (min-width: ${props => props.theme.breakpoints[0]}) {
       width: ${props => (props.isFullWidth ? '100%' : 'auto')};
