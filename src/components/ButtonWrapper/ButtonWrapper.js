@@ -25,7 +25,7 @@ export default function ButtonWrapper(props) {
       if (child.type.name === 'Button') {
         return cloneElement(child)
       } else {
-        console.error(
+        throw new Error(
           `Invalid child component '${child.type.name}' - Only 'Button' components are valid children of 'ButtonWrapper'`
         )
       }
