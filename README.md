@@ -1,4 +1,4 @@
-![Node.js CI](https://github.com/nicklemmon/citrus-react/workflows/Node.js%20CI/badge.svg)
+![Node.js CI](https://github.com/nicklemmon/citrus-react/workflows/Tests/badge.svg)
 
 ## Getting Started
 
