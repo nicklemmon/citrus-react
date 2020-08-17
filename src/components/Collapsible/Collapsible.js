@@ -31,16 +31,16 @@ const StyledButton = styled.button`
 `
 
 const StyledChevron = styled(Icon)`
+  color: ${props => props.theme.colors.blue};
   transform: ${props => (props.isRotated ? 'rotate(90deg)' : 'unset')};
 `
 
 const StyledContent = styled.div`
   padding: ${props => props.theme.space[3]};
-  display: ${props => (props.isExpanded ? 'block' : 'none')};
   border-top: ${props => (props.isExpanded ? `1px solid ${props.theme.colors.lightGray}` : 'none')};
 `
 
-function Collapsible({ children, isExpanded = false }) {
+function Collapsible({ children, id, isExpanded = false }) {
   const renderChildren = () =>
     React.Children.map(children, child => {
       if (!isValidElement(child)) return
@@ -49,7 +49,7 @@ function Collapsible({ children, isExpanded = false }) {
         child.type.displayName === 'Collapsible.Button' ||
         child.type.displayName === 'Collapsible.Content'
       ) {
-        return cloneElement(child, { isExpanded })
+        return cloneElement(child, { isExpanded, id })
       }
 
       throw new Error(
@@ -61,26 +61,36 @@ function Collapsible({ children, isExpanded = false }) {
 }
 
 Collapsible.propTypes = {
+  id: PropTypes.string,
   isExpanded: PropTypes.bool
 }
 
-function Button({ isExpanded = false, onClick, children }) {
+function Button({ isExpanded = false, onClick, children, id }) {
   return (
-    <StyledButton onClick={onClick} aria-expanded={isExpanded ? 'true' : 'false'}>
+    <StyledButton
+      aria-controls={`${id}-content`}
+      onClick={onClick}
+      aria-expanded={isExpanded ? 'true' : 'false'}
+    >
       {children}
 
-      <StyledChevron isRotated={isExpanded} icon={chevronRight} size={15} />
+      <StyledChevron isRotated={isExpanded} icon={chevronRight} size={16} />
     </StyledButton>
   )
 }
 
 Button.propTypes = {
   onClick: PropTypes.func.isRequired,
+  id: PropTypes.string,
   isExpanded: PropTypes.bool
 }
 
-function Content({ isExpanded = false, children }) {
-  return <StyledContent isExpanded={isExpanded}>{children}</StyledContent>
+function Content({ isExpanded = false, children, id }) {
+  return (
+    <StyledContent id={`${id}-content`} hidden={!isExpanded} isExpanded={isExpanded}>
+      {children}
+    </StyledContent>
+  )
 }
 
 Content.propTypes = {
