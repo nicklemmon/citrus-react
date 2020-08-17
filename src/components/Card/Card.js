@@ -31,7 +31,7 @@ function Card(props) {
 
 function CardHeading({ children, as = 'h3' }) {
   return (
-    <Heading as={as} looksLike="h5">
+    <Heading as={as} looksLike="h6">
       {children}
     </Heading>
   )

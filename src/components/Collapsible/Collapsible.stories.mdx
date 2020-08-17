@@ -1,0 +1,34 @@
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks'
+import Collapsible from './Collapsible'
+
+<Meta title="Collapsible" component={Collapsible} />
+
+<Props of={Collapsible} />
+<Props of={Collapsible.Button} />
+<Props of={Collapsible.Content} />
+
+### With Default Props
+
+<Preview>
+  <Story name="with default props">
+    <Collapsible>
+      <Collapsible.Button onClick={() => console.log('click')}>Click Me</Collapsible.Button>
+      <Collapsible.Content>
+        <p>Boo!</p>
+      </Collapsible.Content>
+    </Collapsible>
+  </Story>
+</Preview>
+
+### Expanded by Default
+
+<Preview>
+  <Story name="expanded by default">
+    <Collapsible isExpanded>
+      <Collapsible.Button onClick={() => console.log('click')}>Click Me</Collapsible.Button>
+      <Collapsible.Content>
+        <p>Boo!</p>
+      </Collapsible.Content>
+    </Collapsible>
+  </Story>
+</Preview>
